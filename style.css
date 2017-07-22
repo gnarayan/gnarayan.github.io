@@ -1,0 +1,36 @@
+BODY{background-color: #FFFFFF}
+
+.LINK1 a:link{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; color: #FFFFFF; background-color: #151B54; text-decoration: none; font-weight: bold; cursor: default;}
+.LINK1 a:visited{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; color: #FFFFFF; background-color: #151B54; text-decoration: none; font-weight: bold; cursor: default;}
+.LINK1 a:hover{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; color: #151B54; background-color: #FFFFFF; text-decoration: none; font-weight: bold; cursor: pointer; border: none;}
+
+
+.LINK2 a:link{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; color: #151B54; background-color: #FFFFFF; text-decoration: none; font-weight: bold; cursor: default;}
+.LINK2 a:visited{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; color: #151B54; background-color: #FFFFFF; text-decoration: none; font-weight: bold; cursor: default; }
+.LINK2 a:hover{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; color: #FFFFFF; background-color: #151B54; text-decoration: none; font-weight: bold; cursor: pointer; border: none;}
+
+.LINK3 a:link{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; color: #FFFFFF; background-color: #FFFFFF; text-decoration: none; font-weight: bold; cursor: default;}
+.LINK3 a:visited{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; color: #FFFFFF; background-color: #FFFFFF; text-decoration: none; font-weight: bold; cursor: default; }
+.LINK3 a:hover{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; color: #FFFFFF; background-color: #FFFFFF; text-decoration: none; font-weight: bold; cursor: pointer; border: none;}
+
+.TITLE{font-size: x-large; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; color: #151B54;font-weight: bold;}
+.SUBTITLE{color: #151B54; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: large;font-weight: bold; text-decoration: underline; margin: 10px 10px 10px;}
+.REGTEXT{color: #151B54; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; margin: 10px 15% 10px; text-decoration: none;text-align:justify;}
+.REGTEXT2{color: #151B54; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; margin: 10px 15% 10px; text-decoration: none; text-align:center;}
+.TINYTEXT{font-size: x-medium; color: #151B54; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight:lighter; text-align: right; margin-right: 5px;}
+
+.superscript{font-size:xx-medium; vertical-align:top;}
+.subscript{font-size:xx-medium; vertical-align:bottom;} 
+
+
+div.MAIN{margin: 20px 14% 20px; border-style: double; border-width: 3px; border-color: #151B54;}
+
+img.floatRight { float: right; margin: 4px; border-style: solid; border-color: #FFFFFF; border-width: 2px;}
+img.floatLeft { float: left; margin: 4px; border-style: solid; border-color: #FFFFFF; border-width: 2px;}
+img.mid {display: block; margin-left: auto; margin-right: auto; border-style: solid; border-color: #151B54; border-width: 2px;}
+
+.REDTEXT{color: #FF0000; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; font-weight: bold; text-decoration: none;}
+.BLUETEXT{color: #0000FF; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; font-weight: bold; text-decoration: none;}
+.GREENTEXT{color: #006600; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: medium; font-weight: bold; text-decoration: none;}
+
+hr{color: #151B54; background-color: #151B54; border:0; width: 80%; height: 5px;}
