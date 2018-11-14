@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/hero/</loc>
+    <lastmod>2017-10-15T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/about/</loc>
+    <lastmod>2016-04-20T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/experience/</loc>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/projects/</loc>
+    <lastmod>2016-04-20T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/hero_carousel/</loc>
+    <lastmod>2017-10-15T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/teaching/</loc>
+    <lastmod>2016-04-20T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/talks_selected/</loc>
+    <lastmod>2016-04-20T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/search/</loc>
+    <lastmod>2018-07-23T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/contact/</loc>
+    <lastmod>2016-04-20T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/post/</loc>
+    <lastmod>2017-01-01T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/publication/</loc>
+    <lastmod>2017-01-01T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/talk/</loc>
+    <lastmod>2017-01-01T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/project/01mlmma/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/project/02snia/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/project/03calib/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/project/04cosmo/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/tags/astrostatistics/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/tags/deep-learning/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/</loc>
+    <lastmod>2017-10-15T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/home/</loc>
+    <lastmod>2017-10-15T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/project/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/publication_types/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/tags/standards/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/tags/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/tags/time-domain-astrophysics/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://gnarayan.github.io/tags/wide-field-surveys/</loc>
+    <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

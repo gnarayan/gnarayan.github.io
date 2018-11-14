@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homes on Gautham Narayan</title>
+    <link>https://gnarayan.github.io/home/</link>
+    <description>Recent content in Homes on Gautham Narayan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Gautham Narayan 2018</copyright>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gnarayan.github.io/home/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gautham Narayan</title>
+      <link>https://gnarayan.github.io/home/hero/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/home/hero/</guid>
+      <description>AI, Big Data, Cosmology</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://gnarayan.github.io/home/about/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/home/about/</guid>
+      <description>Biography Gautham Narayan is the Barry M. Lasker Data Science Fellow at STScI. His research interests lie at the intersection of multi-messenger and time-domain astrophysics, cosmology, statistics and data science. He works on wide-field surveys developing machine learning methods for real-time detection and classification of variable and transient sources, Bayesian models for cosmological inference with type Ia supernovae, and establishing an all-sky network of faint spectrophotometric standards for LSST, WFIRST and future projects.</description>
+    </item>
+    
+    <item>
+      <title>Experience</title>
+      <link>https://gnarayan.github.io/home/experience/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gnarayan.github.io/home/experience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://gnarayan.github.io/home/projects/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/home/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://gnarayan.github.io/home/hero_carousel/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/home/hero_carousel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Teaching</title>
+      <link>https://gnarayan.github.io/home/teaching/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/home/teaching/</guid>
+      <description>I have been an instructor at the:
+ ZTF Summer School, Pasadena, Aug. 2018 LSST Data Science Fellowship Program, Session 5, Baltimore, Jan. 2018 LSST Data Science Fellowship Program, Session 3, Tucson, Apr. 2017 NOAO Teen Astronomy Cafe, How Stars Die, Tucson, Nov. 2017 NOAO Big Data Workshop for Tucson High School Students, Jan. 2017 Python Workshop for NOAO/NSO REU Students, Tucson, 2014 &amp;amp; 2015 Teaching Fellow/Teaching Assistant/Tutor for introductory physics and astrophysics classes, electronics, and experimental physics  Please see my CV for a list of students I have mentored.</description>
+    </item>
+    
+    <item>
+      <title>Recent Talks</title>
+      <link>https://gnarayan.github.io/home/talks_selected/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/home/talks_selected/</guid>
+      <description> Probing Supernovae Progenitors with Early-time Light Curves from K2    The Lives and Deaths of Stars, Youth For Astronomy and Engineering    ANTARES - Coping with Streaming Data, LSST Data Science Fellowship Program Session 3     </description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://gnarayan.github.io/home/search/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/home/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://gnarayan.github.io/home/contact/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/home/contact/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

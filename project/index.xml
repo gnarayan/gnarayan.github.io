@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Gautham Narayan</title>
+    <link>https://gnarayan.github.io/project/</link>
+    <description>Recent content in Projects on Gautham Narayan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Gautham Narayan 2018</copyright>
+    <lastBuildDate>Wed, 27 Apr 2016 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="https://gnarayan.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deep Learning for Multimessenger Astrophysics</title>
+      <link>https://gnarayan.github.io/project/01mlmma/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/project/01mlmma/</guid>
+      <description>I&amp;rsquo;m using techniques at the forefront of AI research to classify real-time data from wide-field surveys. My goal is to identify rare and unusual sources within these multi-messenger alert streams, as well as create pure samples of type Ia supernovae for cosmology with LSST. I use a combination of ML techniques to accomplish this including random forests, gradient boosting and much else. These days though, I&amp;rsquo;m using neural networks, particularly recurrent neural networks (RNNs) with Gated Recurrent Units (GRUs) or Long-Short Term Memory (LSTM) layers.</description>
+    </item>
+    
+    <item>
+      <title>Forensics on Stellar Corpses</title>
+      <link>https://gnarayan.github.io/project/02snia/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/project/02snia/</guid>
+      <description>I&amp;rsquo;m part of the KEGS team investigating the progenitor systems of supernovae with high-cadence light curves from Kepler. We&amp;rsquo;ve found some of the first supernovae that have early-time excess flux, indicating a possible main sequence companion, or surface nickel mixing. I&amp;rsquo;m leading the analysis of one of the KEGS SNIa, and I am advising a student on their analysis of an unusual rapid transient. I&amp;rsquo;ll be applying the lessons learned from Kepler to TESS, NASA&amp;rsquo;s next flagship exoplanet mission.</description>
+    </item>
+    
+    <item>
+      <title>Standards for Future Surveys</title>
+      <link>https://gnarayan.github.io/project/03calib/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/project/03calib/</guid>
+      <description>I lead the analysis of a multi-cycle HST program to establish faint (16.5 &amp;lt; V &amp;lt; 19) DA white dwarf stars as spectrophotometric standards. I developed a Bayesian method to coherently model spectroscopy and photometry, inferring SEDs tied to HST&amp;rsquo;s CALSPEC standards. These standards are within the dynamic range of upcoming wide-field facilities, particularly JWST and WFIRST, where the CALSPEC standards will saturate detectors. Observing them will result in the most accurately measured light curves ever.</description>
+    </item>
+    
+    <item>
+      <title>The Equation of State of Dark Energy</title>
+      <link>https://gnarayan.github.io/project/04cosmo/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://gnarayan.github.io/project/04cosmo/</guid>
+      <description>Since the discovery of the accelerating expansion of the Universe in 1998, type Ia supernovae (SN Ia) have remained our most sensitive probe of dark energy. I joined the ESSENCE (Equation of State: SupErNova tracE Cosmic Expansion) project at the start of my graduate studies. ESSENCE observed over 200 SN Ia over seven years, in R and I at a median redshift of 0.4, and constrain the equation of state of dark energy, w, to 10%.</description>
+    </item>
+    
+  </channel>
+</rss>
