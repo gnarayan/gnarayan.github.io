@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Gautham Narayan 2019</copyright>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 01 Nov 2018 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="https://gnarayan.github.io/home/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Gautham Narayan</title>
       <link>https://gnarayan.github.io/home/hero/</link>
-      <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/hero/</guid>
       <description>AI, Big Data, Cosmology</description>
@@ -24,7 +24,7 @@
     <item>
       <title></title>
       <link>https://gnarayan.github.io/home/about/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/about/</guid>
       <description>Biography Gautham Narayan is the Barry M. Lasker Data Science Fellow at STScI. His research interests lie at the intersection of multi-messenger and time-domain astrophysics, cosmology, statistics and data science. He works on wide-field surveys developing machine learning methods for real-time detection and classification of variable and transient sources, Bayesian models for cosmological inference with type Ia supernovae, and establishing an all-sky network of faint spectrophotometric standards for LSST, WFIRST and future projects.</description>
@@ -42,7 +42,7 @@
     <item>
       <title>Research</title>
       <link>https://gnarayan.github.io/home/projects/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/projects/</guid>
       <description>Please see my CV for a list of publications.</description>
@@ -51,7 +51,7 @@
     <item>
       <title></title>
       <link>https://gnarayan.github.io/home/hero_carousel/</link>
-      <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/hero_carousel/</guid>
       <description></description>
@@ -60,7 +60,7 @@
     <item>
       <title>Teaching</title>
       <link>https://gnarayan.github.io/home/teaching/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/teaching/</guid>
       <description>I have been an instructor at the:
@@ -70,7 +70,7 @@
     <item>
       <title>Recent Talks</title>
       <link>https://gnarayan.github.io/home/talks_selected/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/talks_selected/</guid>
       <description> Probing Supernovae Progenitors with Early-time Light Curves from K2    The Lives and Deaths of Stars, Youth For Astronomy and Engineering    ANTARES - Coping with Streaming Data, LSST Data Science Fellowship Program Session 3     </description>
@@ -79,7 +79,7 @@
     <item>
       <title>Search</title>
       <link>https://gnarayan.github.io/home/search/</link>
-      <pubDate>Mon, 23 Jul 2018 00:00:00 -0400</pubDate>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/search/</guid>
       <description></description>
@@ -88,7 +88,7 @@
     <item>
       <title>Bio</title>
       <link>https://gnarayan.github.io/home/cv/</link>
-      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/cv/</guid>
       <description></description>
@@ -97,7 +97,7 @@
     <item>
       <title>Workshop on Multi-Messenger Astrophysics</title>
       <link>https://gnarayan.github.io/home/meeting/</link>
-      <pubDate>Thu, 01 Nov 2018 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/meeting/</guid>
       <description></description>
@@ -106,7 +106,7 @@
     <item>
       <title>Contact</title>
       <link>https://gnarayan.github.io/home/contact/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 -0500</pubDate>
       
       <guid>https://gnarayan.github.io/home/contact/</guid>
       <description></description>
