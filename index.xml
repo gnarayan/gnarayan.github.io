@@ -10,39 +10,45 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Projects</title>
-      <link>https://gnarayan.github.io/project/</link>
+      <title>Deep Learning for Multimessenger Astrophysics</title>
+      <link>https://gnarayan.github.io/project/01mlmma/</link>
       <pubDate>Thu, 01 Nov 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gnarayan.github.io/project/</guid>
-      <description></description>
+      <guid>https://gnarayan.github.io/project/01mlmma/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m using techniques at the forefront of AI research to classify real-time data from wide-field surveys. My goal is to identify rare and unusual sources within these multi-messenger alert streams, as well as create pure samples of type Ia supernovae for cosmology with LSST. I use a combination of ML techniques to accomplish this including random forests, gradient boosting and much else. These days though, I&amp;rsquo;m using neural networks, particularly recurrent neural networks (RNNs) with Gated Recurrent Units (GRUs) or Long-Short Term Memory (LSTM) layers. I am working on using convolutional neural nets (CNNs) and generative adverserial networks (GANs) to move us from classifying time-series to classifying image-series.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m lead algorithms developer on the Arizona-NOAO Transient Alert and Response to Events System (&lt;a href=&#34;https://www.noao.edu/ANTARES/&#34; target=&#34;_blank&#34;&gt;ANTARES&lt;/a&gt;) broker, and my work is part of a &lt;a href=&#34;http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1801.07323&#34; target=&#34;_blank&#34;&gt;special issue&lt;/a&gt; of the ApJ Supplement. I also lead the validation team for the Photometric LSST Astronomical Time-series Classification Challenge (&lt;a href=&#34;https://www.kaggle.com/c/PLAsTiCC-2018&#34; target=&#34;_blank&#34;&gt;PLAsTiCC&lt;/a&gt;) that is live now! I&amp;rsquo;m also involved in using deep learning to find supernovae within the TESS satellite&amp;rsquo;s footprint, using lessons from my time as part of the Kepler Extragalactic Survey (KEGS). My work has involved three students, and I&amp;rsquo;m guiding them towards their theses and publications.&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Posts</title>
-      <link>https://gnarayan.github.io/post/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
+      <title>Forensics on Stellar Corpses</title>
+      <link>https://gnarayan.github.io/project/02snia/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gnarayan.github.io/post/</guid>
-      <description></description>
+      <guid>https://gnarayan.github.io/project/02snia/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m part of the KEGS team investigating the progenitor systems of supernovae with high-cadence light curves from Kepler. We&amp;rsquo;ve found some of the first supernovae that have early-time excess flux, indicating a possible main sequence companion, or surface nickel mixing. I&amp;rsquo;m leading the analysis of one of the KEGS SNIa, and I am advising a student on their analysis of an unusual rapid transient. I&amp;rsquo;ll be applying the lessons learned from Kepler to TESS, NASA&amp;rsquo;s next flagship exoplanet mission. I am particularly interested in combining my work on deep learning to classify transients in alert streams to ground-based searches of the TESS field. I am working on combining machine learning and citizen science and building hybrid active learning systems for supernova studies. We will discover some of the earliest supernovae ever, gleaning insights into their explosions. With JWST, and WFIRST after that, we will have new windows with which to peer into the infrared and understand supernova host-environments. These advances will in turn help refine models of SNIa and improve their precision as cosmological probes with LSST.&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Publications</title>
-      <link>https://gnarayan.github.io/publication/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
+      <title>Standards for Future Surveys</title>
+      <link>https://gnarayan.github.io/project/03calib/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gnarayan.github.io/publication/</guid>
-      <description></description>
+      <guid>https://gnarayan.github.io/project/03calib/</guid>
+      <description>&lt;p&gt;I lead the analysis of a multi-cycle HST program to establish faint (16.5 &amp;lt; V &amp;lt; 19) DA white dwarf stars as spectrophotometric standards. I developed a &lt;a href=&#34;http://github.com/gnarayan/WDmodel/&#34; target=&#34;_blank&#34;&gt;Bayesian method&lt;/a&gt; to coherently model spectroscopy and photometry, inferring SEDs tied to HST&amp;rsquo;s CALSPEC standards. These standards are within the dynamic range of upcoming wide-field facilities, particularly JWST and WFIRST, where the CALSPEC standards will saturate detectors. Observing them will result in the most accurately measured light curves ever. This will lead to the most accurate cosmological constraints, free of systematics arising from calibration.&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Recent &amp; Upcoming Talks</title>
-      <link>https://gnarayan.github.io/talk/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0600</pubDate>
+      <title>The Equation of State of Dark Energy</title>
+      <link>https://gnarayan.github.io/project/04cosmo/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 -0500</pubDate>
       
-      <guid>https://gnarayan.github.io/talk/</guid>
-      <description></description>
+      <guid>https://gnarayan.github.io/project/04cosmo/</guid>
+      <description>&lt;p&gt;Since the discovery of the accelerating expansion of the Universe in 1998, type Ia supernovae (SN Ia) have remained our most sensitive probe of dark energy. I joined the ESSENCE (Equation of State: SupErNova tracE Cosmic Expansion) project at the start of my graduate studies. ESSENCE observed over 200 SN Ia over seven years, in R and I at a median redshift of 0.4, and constrain the equation of state of dark energy, w, to 10%. I was heavily involved in schedule optimization, imaging, spectroscopic follow-up, pipeline development, data reduction and analysis. I lead the final analysis of the survey for my thesis. I have also been involved in cosmological studies using the Pan-STARRS telescope, and am working on combining PS1 supernovae with other literature samples. Together with my colleague Prof. Kaisey Mandel at Cambridge, I work on building Bayesian models to improve the inference of distances from SNIa light curves, and I&amp;rsquo;m very interested in understanding supernova progenitors and their relationship to the host environment. I am an active member of the LSST Dark Energy Science Collaboration.&lt;/p&gt;
+</description>
     </item>
     
   </channel>
