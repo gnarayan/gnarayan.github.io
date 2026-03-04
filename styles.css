@@ -839,7 +839,8 @@ article .article-metadata {
 .article-style a,
 .experience .card-text a,
 .card-text a,
-ul.ul-interests a {
+ul.ul-interests a,
+#about [itemprop="description"] a {
   color: #1565C0;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -848,7 +849,8 @@ ul.ul-interests a {
 .article-style a:hover,
 .experience .card-text a:hover,
 .card-text a:hover,
-ul.ul-interests a:hover {
+ul.ul-interests a:hover,
+#about [itemprop="description"] a:hover {
   color: #FF5F05;
   text-decoration: underline;
 }
