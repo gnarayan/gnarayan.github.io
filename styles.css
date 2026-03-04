@@ -835,6 +835,24 @@ article .article-metadata {
   margin-bottom: 0;
 }
 
+/* Visible inline links in content areas */
+.article-style a,
+.experience .card-text a,
+.card-text a,
+ul.ul-interests a {
+  color: #1565C0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-style a:hover,
+.experience .card-text a:hover,
+.card-text a:hover,
+ul.ul-interests a:hover {
+  color: #FF5F05;
+  text-decoration: underline;
+}
+
 .article-widget {
   padding-top: 1rem;
 }
