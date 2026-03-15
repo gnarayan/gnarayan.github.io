@@ -2249,3 +2249,43 @@ body.dark,
   vertical-align: -2px;
   margin-right: 6px;
 }
+
+/* Experience timeline date/location metadata - replaces Bootstrap float-right utility */
+.exp-meta {
+  float: right;
+  text-align: right;
+}
+
+/* Talk modal overlay */
+.talk-modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.talk-modal-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90vw, 900px);
+}
+
+.talk-modal-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.talk-modal-title {
+  color: #fff;
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
