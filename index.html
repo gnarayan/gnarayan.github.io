@@ -2335,6 +2335,13 @@ url('img/footer.jpg')
   border-radius: 5px;
   object-fit: cover;
 }
+#group-photo-popup.portrait-size {
+  max-width: 320px;
+}
+#group-photo-popup.portrait-size img {
+  max-width: 300px;
+  max-height: 373px;
+}
 #group-photo-popup p {
   margin: 5px 0 0;
   font-size: 1.025rem;
@@ -2370,7 +2377,13 @@ url('img/footer.jpg')
 
       // Position popup above the thumbnail; fall back to below if near top
       var rect = img.getBoundingClientRect();
-      var popW = 300, popH = 390; // approximate
+      var isPortrait = img.classList.contains('portrait');
+      if (isPortrait) {
+        popup.classList.add('portrait-size');
+      } else {
+        popup.classList.remove('portrait-size');
+      }
+      var popW = isPortrait ? 400 : 300, popH = isPortrait ? 520 : 390; // approximate
       var left = rect.left + rect.width / 2 - popW / 2;
       var top  = rect.top - popH - 10;
 
