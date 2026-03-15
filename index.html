@@ -1268,7 +1268,7 @@ AI, Big Data, Cosmology</p>
       <div class="col py-2">
         <div class="card"><div class="card-body">
           <div class="float-right text-muted exp-meta text-center">
-            <img src="/img/group/jason.jpg" data-original="/files/group_originals/jason_original.jpg" alt="Jason Hinkle" class="group-photo">
+            <img src="/img/group/jason.jpg" data-original="/files/group_originals/jason_original.jpg" data-url="https://jhinkle13.github.io/" alt="Jason Hinkle" class="group-photo">
             <div>Aug. 2025–present</div>
           </div>
           <h4 class="card-title exp-title text-muted mt-0 mb-1"><a href="https://jhinkle13.github.io/" target="_blank" rel="noopener">Jason Hinkle</a> <small><a href="https://ui.adsabs.harvard.edu/search/p_=0&q=author%3A%22Hinkle%2C%20Jason%22&sort=date%20desc%2C%20bibcode%20desc" target="_blank" rel="noopener">[ADS]</a></small></h4>
@@ -1436,7 +1436,7 @@ AI, Big Data, Cosmology</p>
       <div class="col py-2">
         <div class="card"><div class="card-body">
           <div class="float-right text-muted exp-meta text-center">
-            <img src="/img/group/tanner.jpg" data-original="/files/group_originals/tanner_original.jpg" alt="Tanner Murphey" class="group-photo">
+            <img src="/img/group/tanner.jpg" data-original="/files/group_originals/tanner_original.jpg" data-url="https://ctmurphey.github.io/" alt="Tanner Murphey" class="group-photo">
             <div>Aug. 2023–present</div>
           </div>
           <h4 class="card-title exp-title text-muted mt-0 mb-1"><a href="https://ctmurphey.github.io/" target="_blank" rel="noopener">Tanner Murphey</a> <small><a href="https://ui.adsabs.harvard.edu/search/p_=0&q=author%3A%22Murphey%2C%20Tanner%22&sort=date%20desc%2C%20bibcode%20desc" target="_blank" rel="noopener">[ADS]</a></small></h4>
@@ -1482,7 +1482,7 @@ AI, Big Data, Cosmology</p>
       <div class="col py-2">
         <div class="card"><div class="card-body">
           <div class="float-right text-muted exp-meta text-center">
-            <img src="/img/group/amanda.jpg" data-original="/files/group_originals/amanda_original.jpg" alt="Amanda Wasserman" class="group-photo">
+            <img src="/img/group/amanda.jpg" data-original="/files/group_originals/amanda_original.jpg" data-url="https://amandawasserman.github.io/" alt="Amanda Wasserman" class="group-photo">
             <div>2021–present</div>
           </div>
           <h4 class="card-title exp-title text-muted mt-0 mb-1"><a href="https://amandawasserman.github.io/" target="_blank" rel="noopener">Amanda Wasserman</a> <small><a href="https://ui.adsabs.harvard.edu/search/p_=0&q=author%3A%22Wasserman%2C%20Amanda%22&sort=date%20desc%2C%20bibcode%20desc" target="_blank" rel="noopener">[ADS]</a></small></h4>
@@ -1631,7 +1631,7 @@ AI, Big Data, Cosmology</p>
       <div class="col py-2">
         <div class="card"><div class="card-body">
           <div class="float-right text-muted exp-meta text-center">
-            <img src="/img/group/arjun.jpg" data-original="/files/group_originals/arjun_original.jpg" alt="Arjun Chainani" class="group-photo">
+            <img src="/img/group/arjun.jpg" data-original="/files/group_originals/arjun_original.jpg" data-url="https://arjunchainani.github.io/" alt="Arjun Chainani" class="group-photo">
             <div>Aug. 2024–present</div>
           </div>
           <h4 class="card-title exp-title text-muted mt-0 mb-1"><a href="https://arjunchainani.github.io/" target="_blank" rel="noopener">Arjun Chainani</a></h4>
@@ -2317,7 +2317,7 @@ url('img/footer.jpg')
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 6px 24px rgba(0,0,0,0.22);
-  padding: 8px 8px 6px;
+  padding: 10px 10px 7px;
   text-align: center;
   opacity: 0;
   visibility: hidden;
@@ -2337,7 +2337,7 @@ url('img/footer.jpg')
 }
 #group-photo-popup p {
   margin: 5px 0 0;
-  font-size: 0.82rem;
+  font-size: 1.025rem;
   font-weight: 500;
   color: #444;
   white-space: nowrap;
@@ -2355,7 +2355,12 @@ url('img/footer.jpg')
   var hideTimer = null;
 
   document.querySelectorAll('.group-photo[data-original], .portrait[data-original]').forEach(function(img) {
-    img.style.cursor = 'pointer';
+    img.style.cursor = img.dataset.url ? 'pointer' : 'default';
+    if (img.dataset.url) {
+      img.addEventListener('click', function() {
+        window.open(img.dataset.url, '_blank', 'noopener');
+      });
+    }
 
     img.addEventListener('mouseenter', function() {
       if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
@@ -2365,7 +2370,7 @@ url('img/footer.jpg')
 
       // Position popup above the thumbnail; fall back to below if near top
       var rect = img.getBoundingClientRect();
-      var popW = 240, popH = 310; // approximate
+      var popW = 300, popH = 390; // approximate
       var left = rect.left + rect.width / 2 - popW / 2;
       var top  = rect.top - popH - 10;
 
