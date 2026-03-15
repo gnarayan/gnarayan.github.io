@@ -16,11 +16,6 @@
  *  Core
  **************************************************/
 
-:root {
-  --color-primary: #13294B;
-  --color-accent: #FF5F05;
-}
-
 html {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -112,7 +107,7 @@ h4, h5, h6 {
 }
 
 a {
-  color: var(--color-primary);
+  color: #13294B;
   text-decoration: none;
   transition: color 0.6s ease;
 }
@@ -120,7 +115,7 @@ a {
 a:hover,
 a:focus,
 h3.article-title a:hover {
-  color: var(--color-accent);
+  color: #FF5F05;
 }
 
 img,
@@ -302,7 +297,7 @@ small,
 }
 
 .form-control:focus {
-  border-color: var(--color-primary);
+  border-color: #13294B;
   box-shadow: 0 0 0 .2rem #757de8;
 }
 
@@ -516,7 +511,7 @@ a[data-fancybox] img {
 .featurette-icon {
   display: block;
   width: 100%;
-  color: var(--color-primary);
+  color: #13294B;
   font-size: 3rem;
   text-align: center;
 }
@@ -802,7 +797,7 @@ article .article-metadata {
 }
 
 .article-metadata a:hover {
-  color: var(--color-accent);
+  color: #FF5F05;
 }
 
 .middot-divider {
@@ -856,7 +851,7 @@ ul.ul-interests a,
 .card-text a:hover,
 ul.ul-interests a:hover,
 #about [itemprop="description"] a:hover {
-  color: var(--color-accent);
+  color: #FF5F05;
   text-decoration: underline;
 }
 
@@ -1071,11 +1066,11 @@ ul.ul-interests a:hover,
 
 .experience .m-2 .border,
 .experience .col.border-right {
-  border-color: var(--color-primary) !important;
+  border-color: #13294B !important;
 }
 
 .experience .m-2 .border.exp-fill {
-  background-color: var(--color-primary) !important;
+  background-color: #13294B !important;
 }
 
 /*************************************************
@@ -1365,25 +1360,25 @@ a.badge:hover {
  **************************************************/
 
 .btn-primary {
-  border-color: var(--color-primary);
-  background: var(--color-primary);
+  border-color: #13294B;
+  background: #13294B;
 }
 
 .btn-outline-primary {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: #13294B;
+  color: #13294B;
 }
 
 .btn-primary:hover,
 .btn-primary:active,
 .open > .dropdown-toggle.btn-primary {
-  background: var(--color-accent);
+  background: #FF5F05;
 }
 
 /* Keep visited state as navy to prevent Firefox applying orange on href="#" buttons */
 .btn-primary:visited {
-  background: var(--color-primary);
-  background-color: var(--color-primary);
+  background: #13294B;
+  background-color: #13294B;
 }
 
 .btn-outline-light:hover,
@@ -1396,8 +1391,8 @@ a.badge:hover {
 .btn-outline-primary:not(:disabled):not(.disabled):active,
 .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: #13294B;
+  border-color: #13294B;
 }
 
 .dark .btn-outline-primary:not(:disabled):not(.disabled).active,
@@ -1408,8 +1403,8 @@ a.badge:hover {
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
+  background-color: #FF5F05;
+  border-color: #FF5F05;
 }
 
 .dark .btn-outline-primary:hover {
@@ -1436,13 +1431,13 @@ a.badge:hover {
 
 .btn-toolbar .btn.btn-primary:hover,
 .btn-toolbar .btn.btn-primary:focus {
-  background-color: var(--color-accent) !important;
+  background-color: #FF5F05 !important;
 }
 
 .btn-toolbar .btn.btn-primary:active,
 .btn-toolbar .btn.btn-primary.active {
-  background-color: var(--color-primary) !important;
-  box-shadow: inset 0 -3px 0 var(--color-accent);
+  background-color: #13294B !important;
+  box-shadow: inset 0 -3px 0 #FF5F05;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -1460,7 +1455,7 @@ a.badge:hover {
 }
 
 .navbar-light {
-  background: var(--color-primary) !important;
+  background: #13294B !important;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(0,0,0,.11)
 }
 
@@ -1498,7 +1493,7 @@ nav#navbar-main li.nav-item {
 }
 
 .navbar-light .navbar-nav>.nav-item>.nav-link:hover {
-  color: var(--color-accent);
+  color: #FF5F05;
   background-color: transparent;
 }
 
@@ -1527,7 +1522,7 @@ nav#navbar-main li.nav-item {
 }
 
 .dropdown-menu {
-  background-color: var(--color-primary) !important;
+  background-color: #13294B !important;
 }
 
 .dropdown-menu > li > a {
@@ -1544,13 +1539,13 @@ nav#navbar-main li.nav-item {
 .dropdown-menu>li>a:hover {
   color: #fff;
   text-decoration: none;
-  background-color: var(--color-accent);
+  background-color: #FF5F05;
 }
 
 .dropdown-menu > .active,
 .dropdown-menu > .active:focus,
 .dropdown-menu > .active:hover {
-  color: var(--color-primary);
+  color: #13294B;
   text-decoration: none;
   background-color: #8c9eff;
   outline: 0;
@@ -1561,7 +1556,7 @@ nav#navbar-main li.nav-item {
 .navbar-light .navbar-nav>.open>a:hover,
 .navbar-light .navbar-nav>.open>a:visited {
   color: #fff !important;
-  background-color: var(--color-accent) !important;
+  background-color: #FF5F05 !important;
 }
 
 .navbar-light .navbar-brand {
@@ -1779,7 +1774,7 @@ body.dark,
 
 .dark .form-control:focus {
   background-color: rgb(68, 71, 90);
-  border-color: var(--color-primary);
+  border-color: #13294B;
   box-shadow: 0 0 0 .2rem #002984;
 }
 
@@ -1812,7 +1807,7 @@ body.dark,
 }
 
 .dark ul.share li a {
-  background-color: var(--color-primary);
+  background-color: #13294B;
 }
 
 .dark table table {
@@ -1865,7 +1860,7 @@ body.dark,
 }
 
 .dark .card h4 a {
-  color: var(--color-primary);
+  color: #13294B;
   border-bottom: solid 1px transparent;
 }
 
@@ -2150,10 +2145,5 @@ hr.section-divider {
   .footer-logos-groups { flex-wrap: wrap; gap: 1.5rem; }
   .footer-logos-divider { display: none; }
   .footer-logos-row { flex-wrap: wrap; gap: 0.75rem; }
-}
-
-:root {
-  --color-primary: var(--color-primary);
-  --color-accent: var(--color-accent);
 }
 
