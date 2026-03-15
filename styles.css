@@ -2101,10 +2101,10 @@ hr.section-divider {
   opacity: 1;
 }
 .footer-logo-desc {
-  height: 60px; /* DESC starburst needs more vertical room to match SkAI visual weight */
+  height: 60px;
 }
 .footer-logo-skai {
-  height: 35px; /* wide logo — scale down to reduce horizontal footprint */
+  height: 55px; /* portrait logo — slightly taller than default 45px for presence */
 }
 .footer-logo-simons {
   height: 35px; /* wide text logo — scale down to reduce horizontal footprint */
@@ -2165,6 +2165,9 @@ hr.section-divider {
 }
 .exp-logo-stsci {
   max-height: 130px;
+}
+.exp-logo-skai {
+  max-height: 120px;
 }
 @media (max-width: 575.98px) {
   .exp-logo-col {
