@@ -527,8 +527,8 @@ a[data-fancybox] img {
 }
 
 #profile .portrait {
-  width: 266px;
-  height: 266px;
+  width: 320px;
+  height: 320px;
   margin: 0 auto;
   border-radius: 50%;
   object-fit: cover;
@@ -2241,8 +2241,8 @@ body.dark,
 
 /* Group member profile photos */
 .group-photo {
-  width: 80px;
-  height: 80px;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
