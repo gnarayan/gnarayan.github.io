@@ -310,7 +310,7 @@
 
 background-image:
 
-url('img/header.jpg')
+url('img/header.webp')
 
 ;">
 
@@ -1860,7 +1860,7 @@ document.addEventListener('keydown', function(e) {
 
 background-image:
 
-url('img/footer.jpg')
+url('img/footer.webp')
 
 ;">
 
@@ -2447,7 +2447,22 @@ url('img/footer.jpg')
   });
 })();
 </script>
-  </body>
+  
+<script>
+(function(){
+  var t=new Image();
+  t.onload=t.onerror=function(){
+    if(t.height!==1){
+      ['hero','cv'].forEach(function(id){
+        var el=document.getElementById(id);
+        if(el) el.style.backgroundImage=el.style.backgroundImage.replace(/\.webp/g,'.jpg');
+      });
+    }
+  };
+  t.src='data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JZQCdAEO/gHOAAA=';
+})();
+</script>
+</body>
 </html>
 
 
