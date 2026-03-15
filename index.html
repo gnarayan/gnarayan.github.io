@@ -2336,11 +2336,11 @@ url('img/footer.jpg')
   object-fit: cover;
 }
 #group-photo-popup.portrait-size {
-  max-width: 320px;
+  max-width: 450px;
 }
 #group-photo-popup.portrait-size img {
-  max-width: 300px;
-  max-height: 373px;
+  max-width: 430px;
+  max-height: 535px;
 }
 #group-photo-popup p {
   margin: 5px 0 0;
@@ -2383,7 +2383,7 @@ url('img/footer.jpg')
       } else {
         popup.classList.remove('portrait-size');
       }
-      var popW = isPortrait ? 400 : 300, popH = isPortrait ? 520 : 390; // approximate
+      var popW = isPortrait ? 460 : 300, popH = isPortrait ? 570 : 390; // approximate
       var left = rect.left + rect.width / 2 - popW / 2;
       var top  = rect.top - popH - 10;
 
