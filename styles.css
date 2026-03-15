@@ -1371,10 +1371,14 @@ a.badge:hover {
 
 .btn-primary:hover,
 .btn-primary:active,
-.btn-primary.active,
-.btn-primary:visited,
 .open > .dropdown-toggle.btn-primary {
   background: #FF5F05;
+}
+
+/* Keep visited state as navy to prevent Firefox applying orange on href="#" buttons */
+.btn-primary:visited {
+  background: #13294B;
+  background-color: #13294B;
 }
 
 .btn-outline-light:hover,
@@ -1427,18 +1431,19 @@ a.badge:hover {
 
 .btn-toolbar .btn.btn-primary:hover,
 .btn-toolbar .btn.btn-primary:focus {
-  background-color: #757de8 !important;
+  background-color: #FF5F05 !important;
 }
 
 .btn-toolbar .btn.btn-primary:active,
 .btn-toolbar .btn.btn-primary.active {
-  background-color: #002984 !important;
+  background-color: #13294B !important;
+  box-shadow: inset 0 -3px 0 #FF5F05;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 .2rem #757de8;
+  box-shadow: 0 0 0 .2rem rgba(255,95,5,0.4);
 }
 
 /*************************************************
