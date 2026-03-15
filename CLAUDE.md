@@ -111,6 +111,39 @@ The biography portrait is `img/Narayan.jpg`, displayed at **320×320 px** (curre
    Use shared background landmarks (slide text, logos, room features) to align the new crop to the same composition.
 4. Centering target: eyes (not ears) should be horizontally centered. The face should sit in the upper-center of the square with shoulders visible at the bottom.
 
+### Experience section card logos
+
+Each Experience card has an institution logo in a 160px flex column to the left of the card content. Logos are stored in `img/logos/exp-<name>.webp` (or `.svg` for vectors). The CSS classes are `.exp-logo-col` (the column container) and `.exp-logo` (`max-width: 150px; max-height: 90px; object-fit: contain`).
+
+**Adding or updating a logo:**
+1. Download the logo and save as `img/logos/exp-<institution>.webp` (convert PNG→WebP with `magick input.png -quality 90 output.webp`). Use SVG for vector logos.
+2. In `index.html`, each card-body has the structure:
+   ```html
+   <div class="card-body" style="display:flex;align-items:flex-start;gap:1rem;">
+     <div class="exp-logo-col"><img src="/img/logos/exp-foo.webp" alt="..." class="exp-logo" loading="lazy"></div>
+     <div style="flex:1;min-width:0;">
+       ... existing card content ...
+     </div>
+   </div>
+   ```
+3. Wide wordmark logos (SkAI 408×110, CAPS 340×98) will appear flat (~150×40px) — this is inherent to their aspect ratio, not a bug.
+
+Current logos: SkAI (`logo-skai.webp`), UIUC Block-I (`exp-uiuc.webp`), CAPS (`exp-caps.svg`), STScI (`exp-stsci.webp`), NOIRLab (`exp-noirlab.webp`).
+
+### Image formats and performance
+
+Hero images (`img/header.webp`, `img/footer.webp`) are full-resolution WebP (4000×2704 and 3000×1890) with original JPEGs kept as fallback. A small inline JS snippet at the bottom of `index.html` detects WebP support and swaps back to `.jpg` on unsupported browsers. Do not delete the original JPEGs.
+
+All footer logos in `img/logos/` are served as WebP (converted from PNG). The NASA logo is SVG. When adding new logos, convert PNGs to WebP with `magick input.png -quality 90 output.webp` and reference the `.webp` file in `index.html`.
+
+### Content Security Policy
+
+A `<meta http-equiv="Content-Security-Policy">` tag in `index.html` restricts resource loading to known domains. When adding new third-party embeds or resources (e.g. a new map provider, CDN, or iframe), update the relevant CSP directive (`script-src`, `style-src`, `img-src`, `frame-src`, etc.) to permit the new domain. The OpenStreetMap embed required adding `www.openstreetmap.org` to `frame-src`.
+
+### OpenStreetMap contact embed
+
+The contact section includes an OSM iframe centred on the Astronomy Building (lat `40.1109343`, lon `-88.2208777`, OSM way 142439014). If the address changes, update the `bbox` and `marker` parameters in the iframe `src`. The bbox format is `?bbox=WEST,SOUTH,EAST,NORTH&marker=LAT,LON` (URL-encoded commas: `%2C`).
+
 ### Funding and projects logo bar
 
 The logo bar sits between the bottom hero image and the contact section in `index.html`. It is a full-width `<div class="footer-logos">` (outside any Bootstrap container), bracketed above and below by `<hr class="section-divider">` (1px solid #222, margin 0).
@@ -149,5 +182,5 @@ These two colors are the University of Illinois official brand colors and should
 
 - **Root (`/`)**: Pre-built static files served by GitHub Pages. Key files: `index.html` (main page with all sections), `styles.css` (custom overrides over Hugo Academic defaults), `js/` (bundled JS), `img/` (photos and icons), `files/` (CV PDF).
 - **`img/group/`**: 400×400 square JPGs for group member circular thumbnails.
-- **`img/logos/`**: Funding agency and project/survey logos for the footer bar. PNG or SVG. Rubin green `#00B68C` used for SCiMMA logo.
+- **`img/logos/`**: All institution and project logos. Footer bar logos use `logo-*.webp` (or `.svg`). Experience card logos use `exp-*.webp` (or `.svg`). Rubin green `#00B68C` used for SCiMMA logo. All PNGs have WebP counterparts; reference the `.webp` in HTML.
 - **`files/group_originals/`**: Original (unmodified) source photos for all group members and the biography portrait, used as hover popup previews and crop source.
