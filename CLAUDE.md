@@ -36,6 +36,11 @@ EOF
 
 Both `index.html` and `404.html` contain the copyright year and must be updated together. Search for `&copy; Gautham Narayan` in both files.
 
+The footer attribution line currently reads:
+> Powered by the [Academic theme](https://sourcethemes.com/academic/) for [Hugo](https://gohugo.io), [Claude Code](https://claude.ai/code), and [vim](https://www.vim.org).
+
+Both files must be kept in sync if this line changes.
+
 ### Adding a recorded talk
 
 Talks are displayed as a 3-column thumbnail gallery in the "Recorded Talks" section of `index.html`. Each card uses a YouTube thumbnail as the preview image. To add a new talk:
@@ -70,6 +75,14 @@ Group member cards support a `data-url` attribute that makes the photo clickable
   ```
 
 When asked to find personal webpages, search for each person's name + institution/field. Present the list of found URLs for user review **before** making any edits to `index.html`. The user has a strong preference for accuracy — do not link pages you are not confident about. If the user supplies a URL directly, use it without question.
+
+**Current group member personal sites** (as of 2026-03-15):
+- Jason Hinkle: `https://jhinkle13.github.io/`
+- Jack O'Brien: `https://jackobrien.info/`
+- Ayan Mitra: `https://am610.github.io/`
+- Henna Abunemeh: `https://hnemeh.github.io/`
+- Tanner Murphey: `https://ctmurphey.github.io/`
+- Athena Engholm, Padmavathi Venkatraman, Aadya Agrawal: no personal site linked yet
 
 ### Linking external tools and projects
 
