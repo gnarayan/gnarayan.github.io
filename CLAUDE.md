@@ -161,13 +161,17 @@ Each Experience card has an institution logo in a 160px flex column to the left 
    ```
 3. Wide wordmark logos (SkAI 408×110, CAPS 340×98) will appear flat (~150×40px) — this is inherent to their aspect ratio, not a bug.
 
-Current logos: SkAI (`logo-skai.webp`), UIUC Block-I (`exp-uiuc.webp`), CAPS (`exp-caps.webp`, rasterized from SVG — the SVG's internal CSS classes did not render reliably as an `<img>` src), STScI (`exp-stsci.webp`), NOIRLab (`exp-noirlab.webp` + `exp-noao.webp` stacked with `<hr>` divider).
+Current logos: SkAI (`logo-skai.webp`, 284×359 portrait), UIUC Block-I (`exp-uiuc.webp`), CAPS (`exp-caps.webp`, rasterized from SVG — the SVG's internal CSS classes did not render reliably as an `<img>` src), STScI (`exp-stsci.webp`), NOIRLab (`exp-noirlab.webp` + `exp-noao.webp` stacked with `<hr>` divider).
 
 The NOIRLab card uses a stacked layout with `flex-direction:column` on its `.exp-logo-col`: NOIRLab logo on top, a thin grey `<hr>`, NOAO logo on bottom. Both link to `noirlab.edu`.
 
 On narrow screens (< 576px) `.exp-logo-col` takes `flex: 0 0 100%` and `justify-content: center` via a media query, causing the logo to appear centered above card text. Card bodies must include `flex-wrap:wrap` in their inline style for this to work.
 
-**Logo sizing:** The default `.exp-logo` is `max-width: 150px; max-height: 90px`. Logos with a prominent roundel (NOAO 400×400, UIUC Block-I 170×173) fill the full 90px height naturally. The STScI logo (640×700) has the roundel in the top ~69% of the image with "STScI" text below; it uses the additional class `.exp-logo-stsci { max-height: 130px }` so the roundel renders at ~90px, matching the others. When adding new logos, compare roundel/mark sizes visually and add a per-logo class if needed.
+**Logo sizing:** The default `.exp-logo` is `max-width: 150px; max-height: 90px`. Logos with a prominent roundel (NOAO 400×400, UIUC Block-I 170×173) fill the full 90px height naturally. Per-logo size override classes exist for taller logos:
+- `.exp-logo-stsci { max-height: 130px }` — STScI logo (640×700) has the roundel in the top ~69% with "STScI" text below; 130px gives ~90px roundel diameter.
+- `.exp-logo-skai { max-height: 120px }` — SkAI formal logo (284×359 portrait) has star mark + "SkAI" wordmark + funding tagline; 120px gives ~95×120px display with legible text.
+
+When adding new logos, compare mark/roundel sizes visually against existing logos and add a per-logo class if the default 90px is too small.
 
 ### Image formats and performance
 
@@ -192,7 +196,7 @@ The logo bar sits between the bottom hero image and the contact section in `inde
 **Adding a logo:**
 1. Save the image to `img/logos/logo-<name>.png` (or `.svg`). SVGs work well for scalable logos.
 2. Add an `<a class="footer-logo-link">` + `<img class="footer-logo">` block inside the appropriate `.footer-logos-row`.
-3. Default logo height is **45px**. For wide text-heavy logos that would dominate the row, add a specific override class (e.g. `.footer-logo-skai { height: 35px; }`) to keep horizontal footprints comparable.
+3. Default logo height is **45px**. Add a per-logo override class when needed: tall/portrait logos can go slightly above default (e.g. `.footer-logo-skai { height: 55px }` for the portrait SkAI logo); wide text-heavy logos may need to go below (e.g. `.footer-logo-simons { height: 35px }`).
 4. The bar uses `flex-wrap: nowrap` — **verify logos still fit on one line** at the MacBook Air viewport (~1280px) after adding anything. If they don't, reduce gaps or add a height override.
 
 **Recoloring a transparent-background logo** (e.g. to match site palette):
