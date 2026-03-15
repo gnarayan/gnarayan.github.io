@@ -143,6 +143,8 @@ The SCiMMA logo was recolored to `#00B68C` (Rubin Observatory green) this way.
 
 These two colors are the University of Illinois official brand colors and should be used consistently for any new UI elements.
 
+**Do not use CSS custom properties (`var()`) for these colors in `styles.css`.** When `var()` fails to resolve (e.g. due to parse order or caching), the CSS fallback for `background` is `transparent`, which makes the navbar background invisible while its hardcoded `color: #fff` nav text remains white — white text on a white page. Use the hardcoded hex values directly.
+
 ## Architecture
 
 - **Root (`/`)**: Pre-built static files served by GitHub Pages. Key files: `index.html` (main page with all sections), `styles.css` (custom overrides over Hugo Academic defaults), `js/` (bundled JS), `img/` (photos and icons), `files/` (CV PDF).
