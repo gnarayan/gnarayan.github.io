@@ -72,9 +72,27 @@ Circular thumbnails are displayed at **80×80 px** using `object-fit: cover; bor
 3. Visually verify the result: the face should be **centered** and **not too tightly cropped** — aim to include the full head with some breathing room above and below (roughly shoulders visible at the bottom, a small margin above the hair at the top).
 4. Update `index.html` to reference the new image and add `data-original="files/group_originals/<name>_original.<ext>"` for the hover popup.
 
-**Centering math:** To center a face horizontally, set `X = face_center_x - crop_width/2`. Increasing `X` or `Y` shifts the crop window right/down in the original, which shifts the face left/up in the output.
+**Centering math:** To center a face horizontally, set `X = face_center_x - crop_width/2`. Increasing `X` or `Y` shifts the crop window right/down in the original, which shifts the face left/up in the output. This is counterintuitive — shifting the crop window right moves the face *left* in the output, and vice versa.
 
 **Tightness guidance:** Crops should be loose enough that the face is not filling the entire circle edge-to-edge. Compare against existing members (Jason, Jack) for a consistent feel. If a crop looks like a passport photo, it is probably too tight.
+
+### Biography portrait
+
+The biography portrait is `img/Narayan.jpg`, displayed at ~200 px wide by Bootstrap (currently stored at 400×400). It uses the same `border-radius: 50%` circular display as group photos, so the same centering rules apply. The hover popup uses `files/group_originals/gautham_original.jpeg` as the full-size preview.
+
+**Updating the portrait:**
+
+1. Copy the new source to `files/group_originals/gautham_original.jpeg` (overwrite).
+2. Crop and resize to **400×400 px**:
+   ```bash
+   magick files/group_originals/gautham_original.jpeg -crop WxH+X+Y +repage -resize 400x400 img/Narayan.jpg
+   ```
+3. If the new source is a less-cropped or Lightroom-processed version of a previously used photo, **recover the last good version from git** as a visual reference before iterating:
+   ```bash
+   git show HEAD~N:img/Narayan.jpg > /tmp/narayan_old.jpg
+   ```
+   Use shared background landmarks (slide text, logos, room features) to align the new crop to the same composition.
+4. Centering target: eyes (not ears) should be horizontally centered. The face should sit in the upper-center of the square with shoulders visible at the bottom.
 
 ## Site colors
 
