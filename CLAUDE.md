@@ -132,7 +132,9 @@ Current logos: SkAI (`logo-skai.webp`), UIUC Block-I (`exp-uiuc.webp`), CAPS (`e
 
 The NOIRLab card uses a stacked layout with `flex-direction:column` on its `.exp-logo-col`: NOIRLab logo on top, a thin grey `<hr>`, NOAO logo on bottom. Both link to `noirlab.edu`.
 
-On narrow screens (< 576px) `.exp-logo-col` takes `flex: 0 0 100%` via a media query, causing the logo to stack above card text. Card bodies must include `flex-wrap:wrap` in their inline style for this to work.
+On narrow screens (< 576px) `.exp-logo-col` takes `flex: 0 0 100%` and `justify-content: center` via a media query, causing the logo to appear centered above card text. Card bodies must include `flex-wrap:wrap` in their inline style for this to work.
+
+**Logo sizing:** The default `.exp-logo` is `max-width: 150px; max-height: 90px`. Logos with a prominent roundel (NOAO 400×400, UIUC Block-I 170×173) fill the full 90px height naturally. The STScI logo (640×700) has the roundel in the top ~69% of the image with "STScI" text below; it uses the additional class `.exp-logo-stsci { max-height: 130px }` so the roundel renders at ~90px, matching the others. When adding new logos, compare roundel/mark sizes visually and add a per-logo class if needed.
 
 ### Image formats and performance
 
