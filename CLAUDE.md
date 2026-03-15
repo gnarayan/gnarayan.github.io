@@ -54,6 +54,19 @@ Each group member card in `index.html` uses several `data-*` attributes that dri
 
 Copy an existing card block and update the name, role, photo path, and these attributes. Then follow the group photo workflow above to prepare the image.
 
+### Linking personal webpages for group members and alumni
+
+Group member cards support a `data-url` attribute that makes the photo clickable (opens the URL in a new tab). Alumni entries are plain HTML list items. When adding or updating a personal webpage link:
+
+**Current group members** (in the Group section card):
+1. Add/update `data-url="https://..."` on the `<img class="group-photo">` element (enables click-on-photo).
+2. Wrap the member's name text in `<a href="https://..." target="_blank" rel="noopener">Name</a>`.
+
+**Alumni** (in the Alumni section list):
+- Wrap the name in `<a href="https://..." target="_blank" rel="noopener">Name</a>`.
+
+When asked to find personal webpages, search for each person's name + institution/field. Present the list of found URLs for user review **before** making any edits to `index.html`. The user has a strong preference for accuracy — do not link pages you are not confident about.
+
 ### Keeping the website consistent with the CV
 
 Periodically read `files/GauthamNarayan_CV.pdf` and compare its content (positions, grants, publications, students, teaching) against the corresponding sections in `index.html`. When discrepancies are found, **do not edit `index.html` directly** — present a list of proposed changes to the user for review and approval before making any edits.
