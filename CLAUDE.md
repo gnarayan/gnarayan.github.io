@@ -63,9 +63,13 @@ Group member cards support a `data-url` attribute that makes the photo clickable
 2. Wrap the member's name text in `<a href="https://..." target="_blank" rel="noopener">Name</a>`.
 
 **Alumni** (in the Alumni section list):
-- Wrap the name in `<a href="https://..." target="_blank" rel="noopener">Name</a>`.
+- Wrap the name in `<a href="https://..." target="_blank" rel="noopener">Name</a>` pointing to their primary personal or professional page (personal site preferred over institutional directory).
+- For alumni with both a personal/employer page and an institutional degree page, use a dual-link pattern: name → primary page, degree institution text → institutional page. Example:
+  ```html
+  <a href="https://pnnl.gov/people/andrew-engel">Andrew Engel</a> … Ph.D., <a href="https://physics.osu.edu/people/engel.250">Ohio State</a>
+  ```
 
-When asked to find personal webpages, search for each person's name + institution/field. Present the list of found URLs for user review **before** making any edits to `index.html`. The user has a strong preference for accuracy — do not link pages you are not confident about.
+When asked to find personal webpages, search for each person's name + institution/field. Present the list of found URLs for user review **before** making any edits to `index.html`. The user has a strong preference for accuracy — do not link pages you are not confident about. If the user supplies a URL directly, use it without question.
 
 ### Keeping the website consistent with the CV
 
