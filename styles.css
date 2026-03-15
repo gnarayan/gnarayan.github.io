@@ -2310,7 +2310,7 @@ body.dark,
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 .footer-logos-group {
@@ -2334,10 +2334,10 @@ body.dark,
 }
 .footer-logos-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: 1.75rem;
+  gap: 1rem;
 }
 .footer-logo {
   height: 50px;
@@ -2356,14 +2356,14 @@ body.dark,
   align-items: center;
 }
 .footer-logo-labeled {
-  gap: 0.45rem;
+  gap: 0.3rem;
 }
 .footer-logo-side-text {
   font-family: 'Montserrat', 'Avenir', 'Century Gothic', sans-serif;
   line-height: 1.1;
 }
 .scimma-text {
-  font-size: 1.85rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: #00B68C;
   letter-spacing: -0.01em;
