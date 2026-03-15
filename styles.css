@@ -2348,9 +2348,37 @@ body.dark,
 .footer-logo:hover {
   opacity: 1;
 }
+.footer-logo-desc {
+  height: 68px; /* DESC starburst needs more vertical room to match SkAI visual weight */
+}
 .footer-logo-link {
   display: inline-flex;
   align-items: center;
+}
+.footer-logo-labeled {
+  gap: 0.45rem;
+}
+.footer-logo-side-text {
+  font-family: 'Montserrat', 'Avenir', 'Century Gothic', sans-serif;
+  line-height: 1.1;
+}
+.scimma-text {
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: #00B68C;
+  letter-spacing: -0.01em;
+}
+.yse-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #444;
+  text-align: left;
 }
 @media (max-width: 767px) {
   .footer-logos-divider { display: none; }
