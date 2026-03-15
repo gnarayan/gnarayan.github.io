@@ -2230,10 +2230,10 @@ url('img/footer.webp')
     ctx.closePath();
   }
 
-  function Supernova(x, y) {
+  function Supernova(x, y, delay) {
     this.x = x;
     this.y = y;
-    this.t = 0;                          // 0–1 lifetime
+    this.t = -(delay || 0);              // negative = waiting to start
     this.duration = 90 + Math.random() * 60; // frames
     this.maxR = 40 + Math.random() * 60;
     this.hue = 20 + Math.random() * 40;  // orange-yellow
@@ -2255,6 +2255,8 @@ url('img/footer.webp')
   }
 
   Supernova.prototype.draw = function() {
+    this.t++;
+    if (this.t <= 0) return;           // still in delay period
     var t = this.t / this.duration;    // 0→1
     if (t > 1) return;
     var ease = t < 0.5 ? 2*t*t : -1+(4-2*t)*t; // easeInOut
@@ -2302,14 +2304,12 @@ url('img/footer.webp')
       ctx.stroke();
       ctx.restore();
     }
-
-    this.t++;
   };
 
-  function spawnSN() {
+  function spawnSN(delay) {
     var x = Math.random() * window.innerWidth;
     var y = Math.random() * window.innerHeight;
-    supernovae.push(new Supernova(x, y));
+    supernovae.push(new Supernova(x, y, delay || 0));
   }
 
   function loop() {
@@ -2332,8 +2332,8 @@ url('img/footer.webp')
     active = true;
     canvas.style.display = 'block';
     resize();
-    // seed with a burst of supernovae
-    for (var i = 0; i < 5; i++) spawnSN();
+    // seed with a burst of supernovae, staggered by random delays
+    for (var i = 0; i < 5; i++) spawnSN(Math.random() * 45);
     if (!raf) raf = requestAnimationFrame(loop);
   });
 
