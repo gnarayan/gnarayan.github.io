@@ -218,6 +218,19 @@ The following content improvements were identified in a review on 2026-03-15, pr
 | Medium | **Prospective student/postdoc statement** | Short paragraph in Group section on whether you are actively recruiting and what to include in an inquiry email |
 | Lower | **Expand biography narrative** | Current bio lists titles/affiliations; add 1–2 sentences tracing research arc from ESSENCE → YSE → SELDON/Rubin era |
 
+### Easter egg — Champaign Supernova Team hover animation
+
+A canvas-based supernova explosion animation is triggered by hovering over the bold "Champaign Supernova Team" text in the Group section intro (`id="cst-trigger"`). The code lives in an inline `<script>` block near the bottom of `index.html`, just after the `<canvas id="sn-canvas">` element.
+
+**How it works:**
+- `Supernova(x, y, delay)` — each explosion has a random position, duration (90–150 frames), max radius, hue, and ejecta particles. The `delay` parameter (in frames) initializes `this.t = -delay`; the object sits invisible until the delay elapses, then animates 0→1 over `duration` frames.
+- `draw()` increments `this.t` first, returns early while `this.t ≤ 0`, then renders the shockwave ring(s), central flash gradient, and rotating ejecta stars.
+- On `mouseenter`: 5 supernovae are spawned with random delays of 0–45 frames so they stagger rather than flash in sync. The animation loop runs via `requestAnimationFrame`.
+- On `mouseleave`: `active = false`; existing explosions finish naturally, then the canvas hides itself.
+- While hovering, a new supernova spawns randomly with 6% probability per frame.
+
+**To adjust the effect:** change the `0–45` delay range in the burst loop, the `0.06` spawn probability, or the `duration`/`maxR` ranges in the constructor.
+
 ## Site colors
 
 | Role | Value |
