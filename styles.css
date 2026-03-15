@@ -2161,3 +2161,75 @@ body.dark,
 .dark .btn.btn-primary.active {
   color: initial;
 }
+
+/* Talks gallery */
+.talks-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .talks-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .talks-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.talk-card {
+  cursor: pointer;
+}
+
+.talk-card:hover .talk-thumb {
+  opacity: 0.85;
+}
+
+.talk-card:hover .talk-play-btn {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.talk-thumb-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.talk-thumb {
+  width: 100%;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.talk-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(0,0,0,0.65);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.talk-title {
+  font-size: 0.78rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+  line-height: 1.3;
+  color: #333;
+}
