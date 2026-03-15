@@ -1234,7 +1234,7 @@ AI, Big Data, Cosmology</p>
 <div class="row">
   <div class="col-12 col-lg-12" style="margin-bottom:1.5rem;">
     <h1>Group</h1>
-    <p>I am fortunate to collaborate with an excellent team of researchers &mdash; the <strong>Champaign Supernova Team</strong>.</p>
+    <p>I am fortunate to collaborate with an excellent team of researchers &mdash; the <strong id="cst-trigger" style="cursor:default;">Champaign Supernova Team</strong>.</p>
   </div>
 </div>
 
@@ -2158,6 +2158,151 @@ url('img/footer.jpg')
 
     
 
+
+<!-- Easter egg: Champaign Supernova Team hover animation -->
+<canvas id="sn-canvas" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:99999;"></canvas>
+<script>
+(function() {
+  var canvas = document.getElementById('sn-canvas');
+  var ctx = canvas.getContext('2d');
+  var trigger = document.getElementById('cst-trigger');
+  var raf = null;
+  var supernovae = [];
+  var active = false;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Cartoon star polygon path
+  function starPath(cx, cy, r, points) {
+    var inner = r * 0.42;
+    ctx.beginPath();
+    for (var i = 0; i < points * 2; i++) {
+      var angle = (Math.PI / points) * i - Math.PI / 2;
+      var radius = i % 2 === 0 ? r : inner;
+      var x = cx + Math.cos(angle) * radius;
+      var y = cy + Math.sin(angle) * radius;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+  }
+
+  function Supernova(x, y) {
+    this.x = x;
+    this.y = y;
+    this.t = 0;                          // 0–1 lifetime
+    this.duration = 90 + Math.random() * 60; // frames
+    this.maxR = 40 + Math.random() * 60;
+    this.hue = 20 + Math.random() * 40;  // orange-yellow
+    this.rings = Math.floor(Math.random() * 2) + 1;
+    // ejecta particles
+    this.particles = [];
+    var nPart = 10 + Math.floor(Math.random() * 8);
+    for (var i = 0; i < nPart; i++) {
+      var angle = (Math.PI * 2 / nPart) * i + Math.random() * 0.3;
+      var speed = 1.5 + Math.random() * 3.5;
+      this.particles.push({
+        angle: angle,
+        speed: speed,
+        size: 3 + Math.random() * 5,
+        points: Math.random() < 0.5 ? 5 : 6,
+        hue: this.hue + (Math.random() - 0.5) * 30
+      });
+    }
+  }
+
+  Supernova.prototype.draw = function() {
+    var t = this.t / this.duration;    // 0→1
+    if (t > 1) return;
+    var ease = t < 0.5 ? 2*t*t : -1+(4-2*t)*t; // easeInOut
+    var alpha = t < 0.7 ? 1 : (1 - t) / 0.3;
+
+    // shockwave ring(s)
+    for (var r = 0; r < this.rings; r++) {
+      var ringR = this.maxR * ease * (1 + r * 0.35);
+      var ringAlpha = alpha * (1 - r * 0.4) * (1 - ease * 0.6);
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, ringR, 0, Math.PI * 2);
+      ctx.strokeStyle = 'hsla(' + this.hue + ',100%,70%,' + ringAlpha.toFixed(2) + ')';
+      ctx.lineWidth = 3 - ease * 2;
+      ctx.stroke();
+    }
+
+    // central flash
+    var flashR = this.maxR * 0.35 * (1 - ease);
+    if (flashR > 0) {
+      var grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, flashR);
+      grad.addColorStop(0, 'hsla(' + (this.hue+30) + ',100%,95%,' + (alpha * 0.9).toFixed(2) + ')');
+      grad.addColorStop(1, 'hsla(' + this.hue + ',100%,60%,0)');
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, flashR, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+    }
+
+    // ejecta stars
+    for (var i = 0; i < this.particles.length; i++) {
+      var p = this.particles[i];
+      var dist = p.speed * this.maxR * ease;
+      var px = this.x + Math.cos(p.angle) * dist;
+      var py = this.y + Math.sin(p.angle) * dist;
+      var pr = p.size * (1 - ease * 0.5);
+      ctx.save();
+      ctx.translate(px, py);
+      ctx.rotate(ease * Math.PI);
+      ctx.globalAlpha = alpha;
+      starPath(0, 0, pr, p.points);
+      ctx.fillStyle = 'hsl(' + p.hue + ',100%,70%)';
+      ctx.fill();
+      ctx.strokeStyle = 'hsl(' + (p.hue - 20) + ',100%,45%)';
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    this.t++;
+  };
+
+  function spawnSN() {
+    var x = Math.random() * window.innerWidth;
+    var y = Math.random() * window.innerHeight;
+    supernovae.push(new Supernova(x, y));
+  }
+
+  function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    supernovae = supernovae.filter(function(sn) { return sn.t <= sn.duration; });
+    for (var i = 0; i < supernovae.length; i++) supernovae[i].draw();
+
+    // spawn a new one occasionally
+    if (active && Math.random() < 0.06) spawnSN();
+
+    if (active || supernovae.length > 0) {
+      raf = requestAnimationFrame(loop);
+    } else {
+      canvas.style.display = 'none';
+    }
+  }
+
+  trigger.addEventListener('mouseenter', function() {
+    active = true;
+    canvas.style.display = 'block';
+    resize();
+    // seed with a burst of supernovae
+    for (var i = 0; i < 5; i++) spawnSN();
+    if (!raf) raf = requestAnimationFrame(loop);
+  });
+
+  trigger.addEventListener('mouseleave', function() {
+    active = false;
+    // let existing ones finish, then canvas auto-hides in loop
+  });
+})();
+</script>
   </body>
 </html>
 
