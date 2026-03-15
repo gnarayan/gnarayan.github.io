@@ -2358,6 +2358,15 @@ hr.section-divider {
 .footer-logo-desc {
   height: 60px; /* DESC starburst needs more vertical room to match SkAI visual weight */
 }
+.footer-logo-skai {
+  height: 35px; /* wide logo — scale down to reduce horizontal footprint */
+}
+.footer-logo-simons {
+  height: 35px; /* wide text logo — scale down to reduce horizontal footprint */
+}
+.footer-logo-yse {
+  height: 35px; /* scale down proportionally with text */
+}
 .footer-logo-link {
   display: inline-flex;
   align-items: center;
@@ -2379,11 +2388,11 @@ hr.section-divider {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 45px;
-  font-size: 0.65rem;
+  height: 35px;
+  font-size: 0.55rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: #444;
   text-align: left;
 }
