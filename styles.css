@@ -2163,3 +2163,11 @@ hr.section-divider {
   height: auto;
   object-fit: contain;
 }
+@media (max-width: 575.98px) {
+  .exp-logo-col {
+    flex: 0 0 100%;
+    justify-content: flex-start;
+    padding-top: 0;
+    padding-bottom: 0.4rem;
+  }
+}
