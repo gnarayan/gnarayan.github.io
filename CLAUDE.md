@@ -18,6 +18,46 @@ Replace the PDF file at `files/GauthamNarayan_CV.pdf`. The filename must stay th
 ### Editing site content
 Since the Hugo source for the main site is not in this repo, content changes require editing the compiled HTML files directly. The main page content is in `index.html`. Publication listings are in `publication/`, posts in `post/`, etc.
 
+**Important:** `index.html` is large and complex. The Edit tool can fail on multi-line replacements. When an edit fails or the match is ambiguous, use a Python replace script instead:
+```bash
+python3 - <<'EOF'
+with open('index.html', 'r') as f:
+    content = f.read()
+content = content.replace(
+    'exact old string',
+    'exact new string'
+)
+with open('index.html', 'w') as f:
+    f.write(content)
+EOF
+```
+
+### Updating the copyright year
+
+Both `index.html` and `404.html` contain the copyright year and must be updated together. Search for `&copy; Gautham Narayan` in both files.
+
+### Adding a recorded talk
+
+Talks are displayed as a 3-column thumbnail gallery in the "Recorded Talks" section of `index.html`. Each card uses a YouTube thumbnail as the preview image. To add a new talk:
+
+1. Get the YouTube video ID from the URL (e.g. `dQw4w9WgXcQ` from `youtube.com/watch?v=dQw4w9WgXcQ`).
+2. The thumbnail URL is: `https://img.youtube.com/vi/<VIDEO_ID>/hqdefault.jpg`
+3. Copy an existing `.talk-card` block in `index.html` and update the `data-videoid`, `data-title`, thumbnail `src`, and `alt` attributes.
+
+### Adding a group member
+
+Each group member card in `index.html` uses several `data-*` attributes that drive the hover popup and click behavior:
+
+- `data-original="files/group_originals/<name>_original.<ext>"` — full-size photo shown on hover (required)
+- `data-name="Full Name"` — name shown in hover popup (required)
+- `data-url="/path/or/url"` — if present, clicking the photo opens this URL
+
+Copy an existing card block and update the name, role, photo path, and these attributes. Then follow the group photo workflow above to prepare the image.
+
+### Keeping the website consistent with the CV
+
+Periodically read `files/GauthamNarayan_CV.pdf` and compare its content (positions, grants, publications, students, teaching) against the corresponding sections in `index.html`. When discrepancies are found, **do not edit `index.html` directly** — present a list of proposed changes to the user for review and approval before making any edits.
+
 ### Group member photos
 
 Circular thumbnails are displayed at **80×80 px** using `object-fit: cover; border-radius: 50%` on a square `<img>`. Because the source image is square and object-fit does not crop it further, the entire square is scaled into the circle. This means **the face must be centered in the square output image** — off-center faces will appear off-center in the circle.
