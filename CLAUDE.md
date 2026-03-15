@@ -128,7 +128,11 @@ Each Experience card has an institution logo in a 160px flex column to the left 
    ```
 3. Wide wordmark logos (SkAI 408×110, CAPS 340×98) will appear flat (~150×40px) — this is inherent to their aspect ratio, not a bug.
 
-Current logos: SkAI (`logo-skai.webp`), UIUC Block-I (`exp-uiuc.webp`), CAPS (`exp-caps.svg`), STScI (`exp-stsci.webp`), NOIRLab (`exp-noirlab.webp`).
+Current logos: SkAI (`logo-skai.webp`), UIUC Block-I (`exp-uiuc.webp`), CAPS (`exp-caps.webp`, rasterized from SVG — the SVG's internal CSS classes did not render reliably as an `<img>` src), STScI (`exp-stsci.webp`), NOIRLab (`exp-noirlab.webp` + `exp-noao.webp` stacked with `<hr>` divider).
+
+The NOIRLab card uses a stacked layout with `flex-direction:column` on its `.exp-logo-col`: NOIRLab logo on top, a thin grey `<hr>`, NOAO logo on bottom. Both link to `noirlab.edu`.
+
+On narrow screens (< 576px) `.exp-logo-col` takes `flex: 0 0 100%` via a media query, causing the logo to stack above card text. Card bodies must include `flex-wrap:wrap` in their inline style for this to work.
 
 ### Image formats and performance
 
@@ -165,6 +169,19 @@ The SCiMMA logo was recolored to `#00B68C` (Rubin Observatory green) this way.
 **SCIMMA and YSE** have inline text labels to the right of their logos (`.footer-logo-labeled` wrapper):
 - SCiMMA: "scimma.org" in Montserrat, `#00B68C`, 0.78rem
 - YSE: "Young / Supernova / Experiment" stacked, 0.55rem, height fixed to match logo (35px)
+
+## Content strategy — planned additions
+
+The following content improvements were identified in a review on 2026-03-15, prioritized for discussion and implementation. Do not implement these without explicit user approval — they require new content from the user.
+
+| Priority | Item | Notes |
+|---|---|---|
+| High | **News / Recent Highlights section** | 3–5 reverse-chronological items near top of page; e.g. SELDON at AAAI-2026, Dovekie DES 5yr cosmology, Jason Hinkle Hubble Fellow |
+| High | **Selected Publications list** | 5–10 curated papers on main page with title, journal, year, one-line significance; the ADS/Scholar buttons alone are insufficient |
+| High | **Update Recorded Talks section** | Current talks are ANTARES-era (2017–2018); replace or supplement with post-2020 talks on SELDON, YSE, calibration, Rubin; prune talks that no longer reflect research direction |
+| Medium | **Software / Code section** | Link to key GitHub repos: SELDON, WDmodel, ORACLE, ANTARES, Mantis Shrimp, etc.; increasingly important for promotion and community uptake |
+| Medium | **Prospective student/postdoc statement** | Short paragraph in Group section on whether you are actively recruiting and what to include in an inquiry email |
+| Lower | **Expand biography narrative** | Current bio lists titles/affiliations; add 1–2 sentences tracing research arc from ESSENCE → YSE → SELDON/Rubin era |
 
 ## Site colors
 
