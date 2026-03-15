@@ -71,6 +71,23 @@ Group member cards support a `data-url` attribute that makes the photo clickable
 
 When asked to find personal webpages, search for each person's name + institution/field. Present the list of found URLs for user review **before** making any edits to `index.html`. The user has a strong preference for accuracy — do not link pages you are not confident about. If the user supplies a URL directly, use it without question.
 
+### Linking external tools and projects
+
+When adding or updating links to external tools (brokers, software, surveys, etc.), check all of the following locations for mentions that should also be linked:
+- Experience card bullet points in `index.html`
+- Project subpages in `project/*/index.html`
+- Group member card descriptions in `index.html`
+
+Talk card titles (in the Recorded Talks section) are plain text strings passed to JavaScript and should not contain links.
+
+Key URLs for tools frequently mentioned on the site:
+- ANTARES alert broker: `https://antares.noirlab.edu/`
+- SkAI Institute: `https://skai-institute.org/`
+- SCiMMA / Hopskotch: `https://scimma.org/`
+- Young Supernova Experiment: `https://yse.ucsc.edu/`
+- Rubin Observatory: `https://rubinobservatory.org/`
+- LSST DESC: `https://lsstdesc.org/`
+
 ### Keeping the website consistent with the CV
 
 Periodically read `files/GauthamNarayan_CV.pdf` and compare its content (positions, grants, publications, students, teaching) against the corresponding sections in `index.html`. When discrepancies are found, **do not edit `index.html` directly** — present a list of proposed changes to the user for review and approval before making any edits.
