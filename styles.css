@@ -2297,9 +2297,14 @@ body.dark,
 
 /* ── Footer logos bar ────────────────────────────────────── */
 .footer-logos {
-  background: #f8f8f8;
+  background: #fff;
   padding: 1.5rem 2rem;
-  border-top: 1px solid #e0e0e0;
+}
+.footer-logos-acknowledgement {
+  text-align: center;
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
 }
 .footer-logos-groups {
   display: flex;
