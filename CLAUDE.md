@@ -60,7 +60,7 @@ Periodically read `files/GauthamNarayan_CV.pdf` and compare its content (positio
 
 ### Group member photos
 
-Circular thumbnails are displayed at **80×80 px** using `object-fit: cover; border-radius: 50%` on a square `<img>`. Because the source image is square and object-fit does not crop it further, the entire square is scaled into the circle. This means **the face must be centered in the square output image** — off-center faces will appear off-center in the circle.
+Circular thumbnails are displayed at **110×110 px** using `object-fit: cover; border-radius: 50%` on a square `<img>`. Because the source image is square and object-fit does not crop it further, the entire square is scaled into the circle. This means **the face must be centered in the square output image** — off-center faces will appear off-center in the circle.
 
 **Workflow for adding or updating a photo:**
 
@@ -78,7 +78,7 @@ Circular thumbnails are displayed at **80×80 px** using `object-fit: cover; bor
 
 ### Biography portrait
 
-The biography portrait is `img/Narayan.jpg`, displayed at ~200 px wide by Bootstrap (currently stored at 400×400). It uses the same `border-radius: 50%` circular display as group photos, so the same centering rules apply. The hover popup uses `files/group_originals/gautham_original.jpeg` as the full-size preview.
+The biography portrait is `img/Narayan.jpg`, displayed at **320×320 px** (currently stored at 400×400). It uses the same `border-radius: 50%` circular display as group photos, so the same centering rules apply. The hover popup uses `files/group_originals/gautham_original.jpeg` as the full-size preview.
 
 **Updating the portrait:**
 
@@ -94,6 +94,28 @@ The biography portrait is `img/Narayan.jpg`, displayed at ~200 px wide by Bootst
    Use shared background landmarks (slide text, logos, room features) to align the new crop to the same composition.
 4. Centering target: eyes (not ears) should be horizontally centered. The face should sit in the upper-center of the square with shoulders visible at the bottom.
 
+### Funding and projects logo bar
+
+The logo bar sits between the bottom hero image and the contact section in `index.html`. It is a full-width `<div class="footer-logos">` (outside any Bootstrap container), bracketed above and below by `<hr class="section-divider">` (1px solid #222, margin 0).
+
+**Structure:** Two groups inside `.footer-logos-groups` — "Funding Agencies" on the left (NSF, DOE, Simons, LSST DA, NASA) and "Projects & Surveys" on the right (SkAI, DESC, SCiMMA, YSE), separated by a `.footer-logos-divider` vertical line.
+
+**Adding a logo:**
+1. Save the image to `img/logos/logo-<name>.png` (or `.svg`). SVGs work well for scalable logos.
+2. Add an `<a class="footer-logo-link">` + `<img class="footer-logo">` block inside the appropriate `.footer-logos-row`.
+3. Default logo height is **45px**. For wide text-heavy logos that would dominate the row, add a specific override class (e.g. `.footer-logo-skai { height: 35px; }`) to keep horizontal footprints comparable.
+4. The bar uses `flex-wrap: nowrap` — **verify logos still fit on one line** at the MacBook Air viewport (~1280px) after adding anything. If they don't, reduce gaps or add a height override.
+
+**Recoloring a transparent-background logo** (e.g. to match site palette):
+```bash
+magick input.png \( +clone -alpha extract \) \( -clone 0 -fill '#00B68C' -colorize 100 \) -delete 0 +swap -alpha off -compose CopyOpacity -composite output.png
+```
+The SCiMMA logo was recolored to `#00B68C` (Rubin Observatory green) this way.
+
+**SCIMMA and YSE** have inline text labels to the right of their logos (`.footer-logo-labeled` wrapper):
+- SCiMMA: "scimma.org" in Montserrat, `#00B68C`, 0.78rem
+- YSE: "Young / Supernova / Experiment" stacked, 0.55rem, height fixed to match logo (35px)
+
 ## Site colors
 
 | Role | Value |
@@ -108,4 +130,5 @@ These two colors are the University of Illinois official brand colors and should
 
 - **Root (`/`)**: Pre-built static files served by GitHub Pages. Key files: `index.html` (main page with all sections), `styles.css` (custom overrides over Hugo Academic defaults), `js/` (bundled JS), `img/` (photos and icons), `files/` (CV PDF).
 - **`img/group/`**: 400×400 square JPGs for group member circular thumbnails.
+- **`img/logos/`**: Funding agency and project/survey logos for the footer bar. PNG or SVG. Rubin green `#00B68C` used for SCiMMA logo.
 - **`files/group_originals/`**: Original (unmodified) source photos for all group members and the biography portrait, used as hover popup previews and crop source.
