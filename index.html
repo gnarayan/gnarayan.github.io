@@ -351,7 +351,7 @@ AI, Big Data, Cosmology</p>
     <div id="profile">
 
       
-      <img class="portrait" src="/img/Narayan.jpg" itemprop="image" alt="Avatar">
+      <img class="portrait" src="/img/Narayan.jpg" itemprop="image" alt="Avatar" data-original="/files/group_originals/gautham_original.jpeg" data-name="Gautham Narayan">
       
 
       <div class="portrait-title">
@@ -2354,14 +2354,14 @@ url('img/footer.jpg')
   var popName = document.getElementById('gp-popup-name');
   var hideTimer = null;
 
-  document.querySelectorAll('.group-photo[data-original]').forEach(function(img) {
+  document.querySelectorAll('.group-photo[data-original], .portrait[data-original]').forEach(function(img) {
     img.style.cursor = 'pointer';
 
     img.addEventListener('mouseenter', function() {
       if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
 
       popImg.src = img.dataset.original;
-      popName.textContent = img.alt;
+      popName.textContent = img.dataset.name || img.alt;
 
       // Position popup above the thumbnail; fall back to below if near top
       var rect = img.getBoundingClientRect();
