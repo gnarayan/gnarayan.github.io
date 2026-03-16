@@ -119,6 +119,7 @@ Circular thumbnails are displayed at **110×110 px** using `object-fit: cover; b
    ```bash
    magick <source> -crop WxH+X+Y +repage -resize 400x400 img/group/<name>.jpg
    ```
+   **Do not apply any brightness, contrast, or other image adjustments.** If the source photo was processed in Lightroom or another editor, use it as-is — the user has already made the desired adjustments.
 3. Visually verify the result: the face should be **centered** and **not too tightly cropped** — aim to include the full head with some breathing room above and below (roughly shoulders visible at the bottom, a small margin above the hair at the top).
 4. Update `index.html` to reference the new image and add `data-original="files/group_originals/<name>_original.<ext>"` for the hover popup.
 
