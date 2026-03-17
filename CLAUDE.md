@@ -43,11 +43,11 @@ Both files must be kept in sync if this line changes.
 
 ### Adding a recorded talk
 
-Talks are displayed as a 3-column thumbnail gallery in the "Recorded Talks" section of `index.html`. Each card uses a YouTube thumbnail as the preview image. To add a new talk:
+Talks live on a dedicated page at `talks/index.html`, linked from the navbar as "Talks". The page is self-contained (its own `<head>`, nav, footer, and modal JS) and does not participate in the main-page scrollspy. To add a new talk:
 
 1. Get the YouTube video ID from the URL (e.g. `dQw4w9WgXcQ` from `youtube.com/watch?v=dQw4w9WgXcQ`).
 2. The thumbnail URL is: `https://img.youtube.com/vi/<VIDEO_ID>/hqdefault.jpg`
-3. Copy an existing `.talk-card` block in `index.html` and update the `data-videoid`, `data-title`, thumbnail `src`, and `alt` attributes.
+3. Copy an existing `.talk-card` block in `talks/index.html` and update the `onclick` video ID, thumbnail `src`, and `alt`/title text.
 
 ### Adding a group member
 
@@ -218,7 +218,7 @@ The following content improvements were identified in a review on 2026-03-15, pr
 |---|---|---|
 | High | **News / Recent Highlights section** | 3–5 reverse-chronological items near top of page; e.g. SELDON at AAAI-2026, Dovekie DES 5yr cosmology, Jason Hinkle Hubble Fellow |
 | High | **Selected Publications list** | 5–10 curated papers on main page with title, journal, year, one-line significance; the ADS/Scholar buttons alone are insufficient |
-| High | **Update Recorded Talks section** | Current talks are ANTARES-era (2017–2018); replace or supplement with post-2020 talks on SELDON, YSE, calibration, Rubin; prune talks that no longer reflect research direction |
+| Lower | **Update Recorded Talks page** | Talks at `/talks/` are ANTARES-era (2017–2018); add newer talks when available. Section intentionally moved off main page since it cannot be kept reliably current. |
 | Medium | **Software / Code section** | Link to key GitHub repos: SELDON, WDmodel, ORACLE, ANTARES, Mantis Shrimp, etc.; increasingly important for promotion and community uptake |
 | Medium | **Prospective student/postdoc statement** | Short paragraph in Group section on whether you are actively recruiting and what to include in an inquiry email |
 | Lower | **Expand biography narrative** | Current bio lists titles/affiliations; add 1–2 sentences tracing research arc from ESSENCE → YSE → SELDON/Rubin era |
