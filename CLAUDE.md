@@ -204,7 +204,7 @@ The logo bar sits between the bottom hero image and the contact section in `inde
 ```bash
 magick input.png \( +clone -alpha extract \) \( -clone 0 -fill '#00B68C' -colorize 100 \) -delete 0 +swap -alpha off -compose CopyOpacity -composite output.png
 ```
-The SCiMMA logo was recolored to `#00B68C` (Rubin Observatory green) this way.
+This technique can be used to recolor any transparent-background logo to match the site palette.
 
 **SCIMMA and YSE** have inline text labels to the right of their logos (`.footer-logo-labeled` wrapper):
 - SCiMMA: "scimma.org" in Montserrat, `#00B68C`, 0.78rem
@@ -252,5 +252,5 @@ These two colors are the University of Illinois official brand colors and should
 
 - **Root (`/`)**: Pre-built static files served by GitHub Pages. Key files: `index.html` (main page with all sections), `styles.css` (custom overrides over Hugo Academic defaults), `js/` (bundled JS), `img/` (photos and icons), `files/` (CV PDF).
 - **`img/group/`**: 400×400 square JPGs for group member circular thumbnails.
-- **`img/logos/`**: All institution and project logos. Footer bar logos use `logo-*.webp` (or `.svg`). Experience card logos use `exp-*.webp` (or `.svg`). Rubin green `#00B68C` used for SCiMMA logo. All PNGs have WebP counterparts; reference the `.webp` in HTML.
+- **`img/logos/`**: All institution and project logos. Footer bar logos use `logo-*.webp` (or `.svg`). Experience card logos use `exp-*.webp` (or `.svg`). The SCiMMA logo (`logo-scimma.webp`, 180×180) is rendered from a vector reconstruction maintained as a standalone project in `~/Dropbox/work/scimma_logo/` — do not regenerate it here. All other PNGs have WebP counterparts; reference the `.webp` in HTML.
 - **`files/group_originals/`**: Original (unmodified) source photos for all group members and the biography portrait, used as hover popup previews and crop source.
