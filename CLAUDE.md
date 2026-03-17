@@ -216,7 +216,7 @@ The following content improvements were identified in a review on 2026-03-15, pr
 
 | Priority | Item | Notes |
 |---|---|---|
-| High | **News / Recent Highlights section** | 3–5 reverse-chronological items near top of page; e.g. SELDON at AAAI-2026, Dovekie DES 5yr cosmology, Jason Hinkle Hubble Fellow |
+| High | **News / Recent Highlights section** | 3–5 reverse-chronological items near top of page. Candidate items (2026): Jason Hinkle NASA Hubble/Einstein Fellowship; Ayan Mitra lead author on LSST fully-photometric SN cosmology paper (arXiv:2512.06319); Dovekie/DES 5yr calibration reanalysis (arXiv:2506.05471, 2511.07517). **Blocked** pending photos and additional content from user — do not implement until explicitly asked. |
 | High | **Selected Publications list** | 5–10 curated papers on main page with title, journal, year, one-line significance; the ADS/Scholar buttons alone are insufficient |
 | Lower | **Update Recorded Talks page** | Talks at `/talks/` are ANTARES-era (2017–2018); add newer talks when available. Section intentionally moved off main page since it cannot be kept reliably current. |
 | Medium | **Software / Code section** | Link to key GitHub repos: SELDON, WDmodel, ORACLE, ANTARES, Mantis Shrimp, etc.; increasingly important for promotion and community uptake |
