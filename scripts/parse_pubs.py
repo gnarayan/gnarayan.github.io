@@ -32,20 +32,21 @@ INSTITUTION_MAP = {
     # Cambridge / BayeSN group
     "mandel": "Cambridge/BayeSN", "thorp": "Cambridge/BayeSN",
     "grayling": "Cambridge/BayeSN", "boyd": "Cambridge/BayeSN",
-    # UCSC / YSE core
-    "foley": "UCSC/YSE", "coulter": "UCSC/YSE", "kilpatrick": "UCSC/YSE",
-    "rojas-bravo": "UCSC/YSE", "siebert": "UCSC/YSE", "dimitriadis": "UCSC/YSE",
+    # UCSC / YSE core (Coulter, Siebert, Kilpatrick have since moved)
+    "foley": "UCSC/YSE", "rojas-bravo": "UCSC/YSE", "dimitriadis": "UCSC/YSE",
     "de boer": "UCSC/YSE", "hoogendam": "UCSC/YSE",
-    # STScI / NOIRLab
+    # STScI / NOIRLab (includes Coulter and Siebert who moved from UCSC)
     "rest": "STScI/NOIRLab", "matheson": "STScI/NOIRLab", "saha": "STScI/NOIRLab",
-    "olszewski": "STScI/NOIRLab",
+    "olszewski": "STScI/NOIRLab", "coulter": "STScI/NOIRLab", "siebert": "STScI/NOIRLab",
     # Chicago / Fermilab DESC
     "kessler": "UChicago/Fermilab", "drlica-wagner": "UChicago/Fermilab",
     "frieman": "UChicago/Fermilab", "chang": "UChicago/Fermilab",
-    # Northwestern SkAI
-    "samia": "Northwestern/SkAI", "krafczyk": "Northwestern/SkAI",
-    # Penn State / misc
-    "villar": "Penn State", "gagliano": "Penn State",
+    # Northwestern SkAI / CIERA
+    "samia": "Northwestern/SkAI", "kilpatrick": "Northwestern/SkAI",
+    # UIUC NCSA (local, non-CST)
+    "krafczyk": "UIUC",
+    # Harvard / MIT IAIFI
+    "villar": "Harvard/IAIFI", "gagliano": "Harvard/IAIFI",
     # Hawaii / Pan-STARRS
     "chambers": "Hawaii/PS1", "huber": "Hawaii/PS1",
     "magnier": "Hawaii/PS1", "wainscoat": "Hawaii/PS1",
