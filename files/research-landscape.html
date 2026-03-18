@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>CST Research Landscape</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: #000;
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+
+body {
+  width: 1920px; height: 1080px;
+  position: relative; overflow: hidden;
+  font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  background:
+    radial-gradient(ellipse 55% 45% at 44% 25%, rgba(147,51,234,0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 38% 30% at 20% 48%, rgba(34,197,94,0.07) 0%, transparent 100%),
+    radial-gradient(ellipse 42% 35% at 78% 55%, rgba(59,130,246,0.08) 0%, transparent 100%),
+    linear-gradient(160deg, #0B1726 0%, #060D18 100%);
+  transform-origin: top left;
+}
+
+/* Canvas sits under cards */
+#cnv {
+  position: absolute; inset: 0;
+  width: 1920px; height: 1080px;
+  pointer-events: none; z-index: 1;
+}
+
+/* ── CARDS ── */
+.card {
+  position: absolute;
+  border-radius: 20px;
+  padding: 22px 26px 20px;
+  z-index: 2;
+  overflow: hidden;
+}
+/* colored top accent strip */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 20px; right: 20px; height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: var(--accent);
+  opacity: 0.9;
+}
+.card-title {
+  font-size: var(--ts, 38px);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+.card-tag {
+  font-size: 15px;
+  color: var(--tag, #8aaac8);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+hr.div {
+  border: none;
+  border-top: 1px solid var(--accent);
+  opacity: 0.22;
+  margin: 0 0 11px;
+}
+.body1 { font-size: 17px; color: var(--b1, #6888b0); line-height: 1.5; }
+.body2 { font-size: 15px; color: var(--b2, #4a6888); line-height: 1.5; margin-top: 8px; }
+.tools { font-size: 16px; color: var(--b1, #6888b0); margin-top: 10px; line-height: 1.5; }
+.tools b { color: var(--accent); }
+
+/* ── RUBIN HERO ── */
+#rubin {
+  left: 496px; top: 38px; width: 610px; height: 296px;
+  --accent: #9333EA; --ts: 54px;
+  --tag: #A880D8; --b1: #8060C0; --b2: #5840908;
+  background: linear-gradient(148deg, rgba(26,10,56,0.97), rgba(10,4,22,0.98));
+  border: 2.5px solid rgba(147,51,234,0.68);
+  box-shadow: 0 0 80px rgba(147,51,234,0.32), inset 0 0 50px rgba(147,51,234,0.07);
+}
+
+/* ── YSE ── */
+#yse {
+  left: 34px; top: 56px; width: 404px; height: 210px;
+  --accent: #22C55E; --ts: 36px;
+  --tag: #50B040; --b1: #3A8028; --b2: #285018;
+  background: rgba(5,14,6,0.97);
+  border: 2px solid rgba(34,197,94,0.58);
+  box-shadow: 0 0 36px rgba(34,197,94,0.16);
+}
+
+/* ── SCiMMA (sidebar, dashed) ── */
+#scimma {
+  left: 1370px; top: 38px; width: 322px; height: 400px;
+  --accent: #10B981; --ts: 28px;
+  --tag: #28A878; --b1: #307860; --b2: #1E5040;
+  background: rgba(4,14,12,0.97);
+  border: 1.8px dashed rgba(16,185,129,0.50);
+  box-shadow: 0 0 22px rgba(16,185,129,0.1);
+}
+
+/* ── DESC ── */
+#desc {
+  left: 88px; top: 366px; width: 492px; height: 278px;
+  --accent: #3B82F6; --ts: 42px;
+  --tag: #5690D8; --b1: #5080B8; --b2: #3860908;
+  background: rgba(5,9,22,0.97);
+  border: 2px solid rgba(59,130,246,0.58);
+  box-shadow: 0 0 36px rgba(59,130,246,0.16);
+}
+
+/* ── SkAI ── */
+#skai {
+  left: 806px; top: 366px; width: 492px; height: 278px;
+  --accent: #F59E0B; --ts: 42px;
+  --tag: #C08828; --b1: #988020; --b2: #604808;
+  background: rgba(18,12,4,0.97);
+  border: 2px solid rgba(245,158,11,0.58);
+  box-shadow: 0 0 36px rgba(245,158,11,0.16);
+}
+
+/* ── SCIENCE GOALS ── */
+#goals {
+  position: absolute;
+  top: 668px; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 0 42px;
+  z-index: 2;
+}
+.goal {
+  flex: 1; max-width: 420px;
+  border-radius: 14px;
+  padding: 13px 18px 11px;
+  text-align: center;
+  border: 1.8px solid var(--gc);
+  background: var(--gbg);
+}
+.g-title { font-size: 20px; font-weight: 700; color: var(--gc); }
+.g-sub   { font-size: 13px; color: var(--gs); margin-top: 3px; }
+
+/* ── PORTRAIT STRIP ── */
+#portraits {
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 258px;
+  background: rgba(4,8,16,0.98);
+  border-top: 3px solid rgba(255,95,5,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 24px;
+  z-index: 2;
+}
+.person {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 5px;
+}
+.person img {
+  width: 118px; height: 118px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3.5px solid var(--ring);
+  display: block;
+  background: #111;
+}
+.p-name { font-size: 15px; font-weight: 700; color: #DDE6F4; text-align: center; line-height: 1.25; }
+.p-role { font-size: 12px; color: #4A6888; }
+.p-dots { display: flex; gap: 5px; margin-top: 2px; }
+.p-dot  { width: 10px; height: 10px; border-radius: 50%; }
+</style>
+</head>
+<body>
+
+<canvas id="cnv"></canvas>
+
+<!-- ── RUBIN HERO ── -->
+<div class="card" id="rubin">
+  <div class="card-title">Rubin / LSST</div>
+  <div class="card-tag">Legacy Survey of Space and Time</div>
+  <hr class="div"/>
+  <div class="body1" style="font-size:19px;">~10 million alerts per night &nbsp;·&nbsp; 18,000 deg² &nbsp;·&nbsp; 10 years</div>
+  <div class="body1" style="margin-top:10px;">The observatory all four research programs are built for</div>
+  <div class="body2" style="margin-top:10px; font-style:italic;">Data Preview 1 now available &nbsp;·&nbsp; DESC is the dark energy science collaboration</div>
+</div>
+
+<!-- ── YSE ── -->
+<div class="card" id="yse">
+  <div class="card-title">YSE</div>
+  <div class="card-tag">Young Supernova Experiment</div>
+  <hr class="div"/>
+  <div class="body1">DECam &nbsp;·&nbsp; Pan-STARRS</div>
+  <div class="body1" style="margin-top:8px;">Precursor survey &amp; synergistic observations</div>
+  <div class="body2" style="font-style:italic;">real-world training data for DESC &amp; SkAI</div>
+</div>
+
+<!-- ── SCiMMA ── -->
+<div class="card" id="scimma">
+  <div class="card-title">SCiMMA</div>
+  <div class="card-tag" style="font-size:13px;">Multi-Messenger Infrastructure</div>
+  <hr class="div"/>
+  <div style="font-size:15px; line-height:2.05; color:#307860;">
+    <b style="color:#22D4A0;">HOPSKOTCH</b>&nbsp; Kafka alert broker<br/>
+    <b style="color:#22D4A0;">HERMES</b>&nbsp;&nbsp;&nbsp;&nbsp; web interface<br/>
+    <b style="color:#22D4A0;">BLAST</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; host galaxy info<br/>
+    <b style="color:#22D4A0;">HEROIC</b>&nbsp;&nbsp;&nbsp;&nbsp; ToO coordination<br/>
+    <b style="color:#22D4A0;">DASH</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SN spectral typing
+  </div>
+  <hr class="div" style="margin-top:12px;"/>
+  <div style="font-size:13px; color:#1E5040; margin-top:2px;">survey-agnostic · hosts DESC &amp; SkAI tools</div>
+  <div style="font-size:13px; color:#1E5040; margin-top:4px;">also bridges → LIGO &nbsp;·&nbsp; IceCube</div>
+</div>
+
+<!-- ── DESC ── -->
+<div class="card" id="desc">
+  <div class="card-title">DESC</div>
+  <div class="card-tag">LSST Dark Energy Science Collaboration</div>
+  <hr class="div"/>
+  <div class="body1">SN Ia cosmology &nbsp;·&nbsp; strong lensing &nbsp;·&nbsp; photometric z</div>
+  <div class="tools">
+    <b>SASSAFRAS</b> &nbsp;·&nbsp; <b>RESSPECT</b> &nbsp;·&nbsp; <b>ORACLE</b>
+  </div>
+  <div class="body2" style="font-style:italic;">SASSAFRAS &amp; RESSPECT shared with SkAI · ORACLE evolved into SELDON</div>
+</div>
+
+<!-- ── SkAI ── -->
+<div class="card" id="skai">
+  <div class="card-title">SkAI</div>
+  <div class="card-tag">NSF-Simons AI Institute for Astronomy</div>
+  <hr class="div"/>
+  <div class="body1">Foundation AI models &nbsp;·&nbsp; real-time Rubin classification</div>
+  <div class="tools"><b>SELDON</b> &nbsp;foundation model for transients</div>
+  <div class="body2" style="font-style:italic;">Narayan+18 → RAPID → ORACLE → SELDON</div>
+</div>
+
+<!-- ── SCIENCE GOALS ── -->
+<div id="goals">
+  <div class="goal" style="--gc:#88C8E8; --gbg:rgba(90,160,200,0.09); --gs:#4A7898;">
+    <div class="g-title">H₀ / Hubble Constant</div>
+    <div class="g-sub">how fast is the universe expanding?</div>
+  </div>
+  <div class="goal" style="--gc:#8AAAE0; --gbg:rgba(96,120,216,0.09); --gs:#486090;">
+    <div class="g-title">Dark Energy</div>
+    <div class="g-sub">does its strength evolve with time?</div>
+  </div>
+  <div class="goal" style="--gc:#E09898; --gbg:rgba(192,104,104,0.09); --gs:#884848;">
+    <div class="g-title">Rare Transients</div>
+    <div class="g-sub">TDE · kilonovae · extreme events</div>
+  </div>
+  <div class="goal" style="--gc:#A8D870; --gbg:rgba(128,184,80,0.09); --gs:#588030;">
+    <div class="g-title">Host Galaxy Evolution</div>
+    <div class="g-sub">transients &amp; their cosmic environments</div>
+  </div>
+</div>
+
+<!-- ── PORTRAIT STRIP ── -->
+<div id="portraits">
+
+  <div class="person" style="--ring:#F59E0B">
+    <img src="../img/group/jason.jpg" alt="Jason Hinkle"/>
+    <div class="p-name">Jason Hinkle</div>
+    <div class="p-role">Hubble Fellow</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#F59E0B"></div>
+      <div class="p-dot" style="background:#22C55E"></div>
+    </div>
+  </div>
+
+  <div class="person" style="--ring:#F59E0B">
+    <img src="../img/group/jack.jpg" alt="Jack O'Brien"/>
+    <div class="p-name">Jack O'Brien</div>
+    <div class="p-role">Postdoc</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#F59E0B"></div>
+      <div class="p-dot" style="background:#22C55E"></div>
+    </div>
+  </div>
+
+  <div class="person" style="--ring:#3B82F6">
+    <img src="../img/group/ayan.jpg" alt="Ayan Mitra"/>
+    <div class="p-name">Ayan Mitra</div>
+    <div class="p-role">ISSP Postdoc</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#3B82F6"></div>
+      <div class="p-dot" style="background:#22C55E"></div>
+    </div>
+  </div>
+
+  <div class="person" style="--ring:#F59E0B">
+    <img src="../img/group/henna.jpg" alt="Henna Abunemeh"/>
+    <div class="p-name">Henna Abunemeh</div>
+    <div class="p-role">Grad Student</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#F59E0B"></div>
+      <div class="p-dot" style="background:#22C55E"></div>
+    </div>
+  </div>
+
+  <div class="person" style="--ring:#8B5CF6">
+    <img src="../img/group/amanda.jpg" alt="Amanda Wasserman"/>
+    <div class="p-name">Amanda Wasserman</div>
+    <div class="p-role">Grad Student</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#F59E0B"></div>
+      <div class="p-dot" style="background:#3B82F6"></div>
+      <div class="p-dot" style="background:#22C55E"></div>
+    </div>
+  </div>
+
+  <div class="person" style="--ring:#22C55E">
+    <img src="../img/group/tanner.jpg" alt="Tanner Murphey"/>
+    <div class="p-name">Tanner Murphey</div>
+    <div class="p-role">Grad Student</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#22C55E"></div>
+    </div>
+  </div>
+
+  <div class="person" style="--ring:#22C55E">
+    <img src="../img/group/athena.jpg" alt="Athena Engholm"/>
+    <div class="p-name">Athena Engholm</div>
+    <div class="p-role">Grad Student</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#22C55E"></div>
+      <div class="p-dot" style="background:#F59E0B"></div>
+    </div>
+  </div>
+
+  <div class="person" style="--ring:#22C55E">
+    <img src="../img/group/haille.jpg" alt="Haille Perkins"/>
+    <div class="p-name">Haille Perkins</div>
+    <div class="p-role">Grad Student</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#22C55E"></div>
+    </div>
+  </div>
+
+  <div class="person" style="--ring:#3B82F6">
+    <img src="../img/group/padma.jpg" alt="Padmavathi Venkatraman"/>
+    <div class="p-name">Padmavathi<br/>Venkatraman</div>
+    <div class="p-role">Grad Student</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#3B82F6"></div>
+    </div>
+  </div>
+
+  <div class="person" style="--ring:#3B82F6">
+    <img src="../img/group/aadya.jpg" alt="Aadya Agrawal"/>
+    <div class="p-name">Aadya Agrawal</div>
+    <div class="p-role">Grad Student</div>
+    <div class="p-dots">
+      <div class="p-dot" style="background:#3B82F6"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+
+  /* ── Scale body to fill viewport ── */
+  function scaleToFit() {
+    const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    document.body.style.transform = 'scale(' + s + ')';
+    document.body.style.marginLeft = ((window.innerWidth  - 1920 * s) / 2) + 'px';
+    document.body.style.marginTop  = ((window.innerHeight - 1080 * s) / 2) + 'px';
+  }
+  scaleToFit();
+  window.addEventListener('resize', scaleToFit);
+
+  /* ── Draw connections on canvas ── */
+  function draw() {
+    const canvas = document.getElementById('cnv');
+    canvas.width = 1920; canvas.height = 1080;
+    const ctx = canvas.getContext('2d');
+
+    /* subtle star field */
+    ctx.fillStyle = 'rgba(200,218,255,0.18)';
+    [54,219,780,1102,1456,1820,320,940,1640,88,
+     560,1230,1780,405,870,1590,130,700,1340,30].forEach((x, i) => {
+      const y = [92,210,45,380,130,280,500,60,420,340,
+                 180,310,80,460,240,370,150,490,22,300][i];
+      ctx.beginPath();
+      ctx.arc(x, y, i % 3 === 0 ? 1.4 : 0.9, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    /* ── helpers ── */
+    function el(id) { return document.getElementById(id); }
+
+    /* Return a point on an element's edge in body-coordinate space.
+       xf/yf are 0–1 fractions along that edge. */
+    function pt(id, side, frac) {
+      const e = el(id);
+      const l = e.offsetLeft, t = e.offsetTop, w = e.offsetWidth, h = e.offsetHeight;
+      frac = frac ?? 0.5;
+      switch (side) {
+        case 'r': return [l + w,         t + h * frac];
+        case 'l': return [l,             t + h * frac];
+        case 't': return [l + w * frac,  t];
+        case 'b': return [l + w * frac,  t + h];
+      }
+    }
+
+    /* Draw an arrowhead at (x2,y2) pointing away from (fromX,fromY) */
+    function arrowHead(x2, y2, fromX, fromY, color, size) {
+      const a = Math.atan2(y2 - fromY, x2 - fromX);
+      const s = size || 13;
+      ctx.beginPath();
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(x2 - s * Math.cos(a - 0.40), y2 - s * Math.sin(a - 0.40));
+      ctx.lineTo(x2 - s * Math.cos(a + 0.40), y2 - s * Math.sin(a + 0.40));
+      ctx.closePath();
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+
+    /* Draw a smooth cubic bezier connection.
+       bow: positive = bows up/left, negative = bows down/right */
+    function connect(p1, p2, color, opts) {
+      opts = opts || {};
+      const [x1, y1] = p1, [x2, y2] = p2;
+      const dx = x2 - x1, dy = y2 - y1;
+      const bow = opts.bow || 0;
+
+      // Perpendicular offset for bowing
+      const len = Math.sqrt(dx*dx + dy*dy) || 1;
+      const nx = -dy / len, ny = dx / len;  // unit normal
+
+      const cx1 = x1 + dx * 0.38 + nx * bow;
+      const cy1 = y1 + dy * 0.38 + ny * bow;
+      const cx2 = x1 + dx * 0.62 + nx * bow;
+      const cy2 = y1 + dy * 0.62 + ny * bow;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.bezierCurveTo(cx1, cy1, cx2, cy2, x2, y2);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = opts.width || 3;
+      ctx.globalAlpha = opts.alpha || 0.72;
+      ctx.setLineDash(opts.dash || []);
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      arrowHead(x2, y2, cx2, cy2, color, opts.arrowSize);
+      if (opts.bidir) arrowHead(x1, y1, cx1, cy1, color, opts.arrowSize);
+
+      if (opts.label) {
+        const mx = (cx1 + cx2) / 2, my = (cy1 + cy2) / 2 - 10;
+        ctx.font = 'bold 13px "Segoe UI", sans-serif';
+        ctx.textAlign = 'center';
+        const tw = ctx.measureText(opts.label).width;
+        ctx.fillStyle = 'rgba(6,10,20,0.80)';
+        ctx.fillRect(mx - tw/2 - 7, my - 15, tw + 14, 20);
+        ctx.fillStyle = color;
+        ctx.globalAlpha = 0.92;
+        ctx.fillText(opts.label, mx, my - 1);
+      }
+      ctx.restore();
+    }
+
+    // ── YSE → Rubin (gently arcing upward) ──
+    connect(pt('yse','r'), pt('rubin','l', 0.52),
+      'rgba(34,197,94,0.75)', { bow: -18 });
+
+    // ── Rubin → DESC (down-left) ──
+    connect(pt('rubin','b', 0.26), pt('desc','t', 0.58),
+      'rgba(147,51,234,0.68)', { bow: 0 });
+
+    // ── Rubin → SkAI (down-right) ──
+    connect(pt('rubin','b', 0.74), pt('skai','t', 0.42),
+      'rgba(147,51,234,0.68)', { bow: 0 });
+
+    // ── Rubin ↔ SCiMMA (bidirectional, slight upward bow) ──
+    connect(pt('rubin','r', 0.42), pt('scimma','l', 0.28),
+      'rgba(16,185,129,0.70)',
+      { bidir: true, bow: -28, label: 'services & alerts' });
+
+    // ── DESC ↔ SkAI (bidirectional, slight upward bow) ──
+    connect(pt('desc','r'), pt('skai','l'),
+      'rgba(139,92,246,0.80)',
+      { bidir: true, bow: -30, label: 'shared tools · AI lineage' });
+  }
+
+  if (document.readyState === 'complete') draw();
+  else window.addEventListener('load', draw);
+
+})();
+</script>
+</body>
+</html>
