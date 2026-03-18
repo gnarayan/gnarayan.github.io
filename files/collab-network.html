@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>CST Co-authorship Network</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: #000;
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+
+body {
+  width: 1920px; height: 1080px;
+  position: relative; overflow: hidden;
+  font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(19,41,75,0.35) 0%, transparent 100%),
+    radial-gradient(ellipse 38% 30% at 18% 20%, rgba(34,197,94,0.05) 0%, transparent 100%),
+    radial-gradient(ellipse 32% 28% at 82% 78%, rgba(59,130,246,0.06) 0%, transparent 100%),
+    linear-gradient(160deg, #0B1726 0%, #060D18 100%);
+  transform-origin: top left;
+}
+
+svg { width: 1920px; height: 1080px; position: absolute; inset: 0; }
+
+/* ── Tooltip ── */
+#tooltip {
+  position: absolute;
+  background: rgba(10,18,36,0.94);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 14px;
+  color: #DDE6F4;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  white-space: nowrap;
+  z-index: 10;
+  max-width: 300px;
+  white-space: normal;
+}
+#tooltip .tt-name  { font-weight: 700; font-size: 15px; color: #fff; }
+#tooltip .tt-count { color: #8AAAC8; font-size: 13px; margin-top: 3px; }
+#tooltip .tt-members { color: #5A8090; font-size: 12px; margin-top: 4px; font-style: italic; }
+
+/* ── Title + legend ── */
+#title-block {
+  position: absolute;
+  top: 28px; left: 42px;
+  z-index: 5;
+}
+#title-block h1 {
+  font-size: 26px; font-weight: 900;
+  color: #DDE6F4; letter-spacing: 0.5px;
+}
+#title-block p {
+  font-size: 14px; color: #4A6888;
+  margin-top: 4px;
+}
+
+#legend {
+  position: absolute;
+  bottom: 28px; left: 42px;
+  z-index: 5;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.leg-row { display: flex; align-items: center; gap: 9px; font-size: 13px; color: #6888A8; }
+.leg-circle { border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.leg-line { height: 2px; display: inline-block; flex-shrink: 0; border-radius: 1px; }
+
+#note {
+  position: absolute;
+  bottom: 28px; right: 42px;
+  font-size: 12px; color: #2A4060;
+  text-align: right;
+}
+</style>
+</head>
+<body>
+
+<div id="title-block">
+  <h1>CST Co-authorship Network</h1>
+  <p>Edge weight ∝ shared publication count · Node size ∝ co-authorship frequency</p>
+</div>
+
+<div id="legend">
+  <div class="leg-row">
+    <span class="leg-circle" style="width:14px;height:14px;background:#13294B;border:3px solid #F59E0B;"></span>
+    <span>Narayan / CST members (ring color = primary project)</span>
+  </div>
+  <div class="leg-row">
+    <span class="leg-circle" style="width:14px;height:14px;background:#2A4060;border:2px solid #4A7898;"></span>
+    <span>External collaboration group (size ∝ co-authorship count)</span>
+  </div>
+  <div class="leg-row">
+    <span class="leg-line" style="width:28px;background:rgba(255,255,255,0.6);height:3px;"></span>
+    <span>Thick edge = many shared papers · Thin = few</span>
+  </div>
+</div>
+
+<div id="note">
+  Based on 141 papers in cvrefs.bib · Author-appearance counts
+</div>
+
+<svg id="svg">
+  <defs>
+    <!-- clip paths for circular portraits are added dynamically by JS -->
+  </defs>
+  <g id="links-layer"></g>
+  <g id="nodes-layer"></g>
+</svg>
+
+<div id="tooltip">
+  <div class="tt-name" id="tt-name"></div>
+  <div class="tt-count" id="tt-count"></div>
+  <div class="tt-members" id="tt-members"></div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+(function () {
+
+/* ── Scale body to fill viewport ── */
+function scaleToFit() {
+  const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+  document.body.style.transform = 'scale(' + s + ')';
+  document.body.style.marginLeft = ((window.innerWidth  - 1920 * s) / 2) + 'px';
+  document.body.style.marginTop  = ((window.innerHeight - 1080 * s) / 2) + 'px';
+}
+scaleToFit();
+window.addEventListener('resize', scaleToFit);
+
+/* ── Embedded graph data (from scripts/parse_pubs.py) ── */
+const GRAPH = {"nodes":[{"id":"Narayan","type":"center","label":"G. Narayan","img":"../img/Narayan.jpg","papers":141},{"id":"hinkle","type":"cst","label":"Jason Hinkle","img":"../img/group/jason.jpg","color":"#F59E0B","papers":1},{"id":"o'brien","type":"cst","label":"Jack O'Brien","img":"../img/group/jack.jpg","color":"#F59E0B","papers":1},{"id":"mitra","type":"cst","label":"Ayan Mitra","img":"../img/group/ayan.jpg","color":"#3B82F6","papers":3},{"id":"abunemeh","type":"cst","label":"Henna Abunemeh","img":"../img/group/henna.jpg","color":"#F59E0B","papers":1},{"id":"wasserman","type":"cst","label":"Amanda Wasserman","img":"../img/group/amanda.jpg","color":"#8B5CF6","papers":5},{"id":"murphey","type":"cst","label":"Tanner Murphey","img":"../img/group/tanner.jpg","color":"#22C55E","papers":2},{"id":"engholm","type":"cst","label":"Athena Engholm","img":"../img/group/athena.jpg","color":"#22C55E","papers":1},{"id":"perkins","type":"cst","label":"Haille Perkins","img":"../img/group/haille.jpg","color":"#22C55E","papers":4},{"id":"venkatraman","type":"cst","label":"Padma Venkatraman","img":"../img/group/padma.jpg","color":"#3B82F6","papers":1},{"id":"agrawal","type":"cst","label":"Aadya Agrawal","img":"../img/group/aadya.jpg","color":"#3B82F6","papers":2},{"id":"UCSC/YSE","type":"external","label":"UCSC / YSE","papers":107,"members":"Foley, Coulter, Kilpatrick, Rojas-Bravo, Siebert, Dimitriadis, Hoogendam, de Boer"},{"id":"STScI/NOIRLab","type":"external","label":"STScI / NOIRLab","papers":65,"members":"Rest, Saha, Matheson, Olszewski"},{"id":"Hawaii/PS1","type":"external","label":"Hawaii / PS1","papers":44,"members":"Chambers, Huber, Magnier, Wainscoat"},{"id":"Cambridge/BayeSN","type":"external","label":"Cambridge / BayeSN","papers":41,"members":"Mandel, Thorp, Grayling, Boyd"},{"id":"Copenhagen","type":"external","label":"Copenhagen","papers":37,"members":"Hjorth, Gall, Izzo"},{"id":"Penn State","type":"external","label":"Penn State","papers":36,"members":"Villar, Gagliano"},{"id":"UChicago/Fermilab","type":"external","label":"UChicago / Fermilab","papers":14,"members":"Kessler, Drlica-Wagner, Frieman, Chang"},{"id":"UIUC","type":"external","label":"UIUC (non-CST)","papers":7,"members":"Vieira, Raghunathan, Fields"},{"id":"LBNL","type":"external","label":"LBNL","papers":6,"members":"Nugent, Kim"},{"id":"Oxford/SAAO","type":"external","label":"Oxford / SAAO","papers":5,"members":"Lochner"},{"id":"Northwestern/SkAI","type":"external","label":"Northwestern / SkAI","papers":2,"members":"Samia, Krafczyk"},{"id":"wang","type":"external","label":"Wang","papers":24},{"id":"jones","type":"external","label":"Jones","papers":23},{"id":"smith","type":"external","label":"Smith","papers":21},{"id":"auchettl","type":"external","label":"Auchettl","papers":18},{"id":"gao","type":"external","label":"Gao","papers":14},{"id":"smartt","type":"external","label":"Smartt","papers":14},{"id":"lin","type":"external","label":"Lin","papers":12},{"id":"zenati","type":"external","label":"Zenati","papers":11},{"id":"davis","type":"external","label":"Davis","papers":10},{"id":"taggart","type":"external","label":"Taggart","papers":10},{"id":"drout","type":"external","label":"Drout","papers":10},{"id":"malanchev","type":"external","label":"Malanchev","papers":10},{"id":"chatterjee","type":"external","label":"Chatterjee","papers":10},{"id":"farias","type":"external","label":"Farias","papers":9},{"id":"margutti","type":"external","label":"Margutti","papers":9},{"id":"pan","type":"external","label":"Pan","papers":9},{"id":"terreran","type":"external","label":"Terreran","papers":9},{"id":"aleo","type":"external","label":"Aleo","papers":9},{"id":"shah","type":"external","label":"Shah","papers":8},{"id":"angus","type":"external","label":"Angus","papers":8},{"id":"others","type":"other","label":"… 890 others","papers":1414}],"links":[{"source":"Narayan","target":"hinkle","weight":1,"type":"narayan-cst"},{"source":"Narayan","target":"o'brien","weight":1,"type":"narayan-cst"},{"source":"Narayan","target":"mitra","weight":3,"type":"narayan-cst"},{"source":"Narayan","target":"abunemeh","weight":1,"type":"narayan-cst"},{"source":"Narayan","target":"wasserman","weight":5,"type":"narayan-cst"},{"source":"Narayan","target":"murphey","weight":2,"type":"narayan-cst"},{"source":"Narayan","target":"engholm","weight":1,"type":"narayan-cst"},{"source":"Narayan","target":"perkins","weight":4,"type":"narayan-cst"},{"source":"Narayan","target":"venkatraman","weight":1,"type":"narayan-cst"},{"source":"Narayan","target":"agrawal","weight":2,"type":"narayan-cst"},{"source":"Narayan","target":"UCSC/YSE","weight":107,"type":"narayan-ext"},{"source":"Narayan","target":"STScI/NOIRLab","weight":65,"type":"narayan-ext"},{"source":"Narayan","target":"Hawaii/PS1","weight":44,"type":"narayan-ext"},{"source":"Narayan","target":"Cambridge/BayeSN","weight":41,"type":"narayan-ext"},{"source":"Narayan","target":"Copenhagen","weight":37,"type":"narayan-ext"},{"source":"Narayan","target":"Penn State","weight":36,"type":"narayan-ext"},{"source":"Narayan","target":"UChicago/Fermilab","weight":14,"type":"narayan-ext"},{"source":"Narayan","target":"UIUC","weight":7,"type":"narayan-ext"},{"source":"Narayan","target":"LBNL","weight":6,"type":"narayan-ext"},{"source":"Narayan","target":"Oxford/SAAO","weight":5,"type":"narayan-ext"},{"source":"Narayan","target":"Northwestern/SkAI","weight":2,"type":"narayan-ext"},{"source":"Narayan","target":"wang","weight":24,"type":"narayan-ext"},{"source":"Narayan","target":"jones","weight":23,"type":"narayan-ext"},{"source":"Narayan","target":"smith","weight":21,"type":"narayan-ext"},{"source":"Narayan","target":"auchettl","weight":18,"type":"narayan-ext"},{"source":"Narayan","target":"gao","weight":14,"type":"narayan-ext"},{"source":"Narayan","target":"smartt","weight":14,"type":"narayan-ext"},{"source":"Narayan","target":"lin","weight":12,"type":"narayan-ext"},{"source":"Narayan","target":"zenati","weight":11,"type":"narayan-ext"},{"source":"Narayan","target":"davis","weight":10,"type":"narayan-ext"},{"source":"Narayan","target":"taggart","weight":10,"type":"narayan-ext"},{"source":"Narayan","target":"drout","weight":10,"type":"narayan-ext"},{"source":"Narayan","target":"malanchev","weight":10,"type":"narayan-ext"},{"source":"Narayan","target":"chatterjee","weight":10,"type":"narayan-ext"},{"source":"Narayan","target":"farias","weight":9,"type":"narayan-ext"},{"source":"Narayan","target":"margutti","weight":9,"type":"narayan-ext"},{"source":"Narayan","target":"pan","weight":9,"type":"narayan-ext"},{"source":"Narayan","target":"terreran","weight":9,"type":"narayan-ext"},{"source":"Narayan","target":"aleo","weight":9,"type":"narayan-ext"},{"source":"Narayan","target":"shah","weight":8,"type":"narayan-ext"},{"source":"Narayan","target":"angus","weight":8,"type":"narayan-ext"},{"source":"Narayan","target":"others","weight":1414,"type":"narayan-ext"}]};
+
+/* ── Sizing helpers ── */
+const CX = 960, CY = 540;  // canvas center
+
+// Max paper count among external nodes (excluding "others")
+const extNodes   = GRAPH.nodes.filter(n => n.type === 'external');
+const maxExtP    = Math.max(...extNodes.map(n => n.papers));
+const maxCstW    = Math.max(...GRAPH.links.filter(l => l.type === 'narayan-cst').map(l => l.weight));
+const extLinks   = GRAPH.links.filter(l => l.type === 'narayan-ext' && l.target !== 'others');
+const maxExtW    = Math.max(...extLinks.map(l => l.weight));
+
+function nodeR(d) {
+  if (d.type === 'center')   return 54;
+  if (d.type === 'cst')      return 36;
+  if (d.type === 'other')    return 8;
+  // external: log scale, 9–30px
+  return 9 + 21 * Math.sqrt(d.papers / maxExtP);
+}
+
+function linkW(d) {
+  if (d.target.id === 'others' || d.target === 'others') return 0.4;
+  if (d.type === 'narayan-cst') return 0.8 + 2.5 * (d.weight / maxCstW);
+  // external: sqrt scale, 0.6–4px
+  return 0.6 + 3.4 * Math.sqrt(d.weight / maxExtW);
+}
+
+function linkAlpha(d) {
+  if (d.target.id === 'others' || d.target === 'others') return 0.12;
+  if (d.type === 'narayan-cst') return 0.55;
+  return 0.18 + 0.22 * Math.sqrt(d.weight / maxExtW);
+}
+
+/* ── SVG setup ── */
+const svg   = d3.select('#svg');
+const defs  = svg.select('defs');
+
+// Add clipPaths for portrait photos
+GRAPH.nodes.forEach(n => {
+  if (!n.img) return;
+  const r = nodeR(n);
+  defs.append('clipPath')
+      .attr('id', 'clip-' + n.id.replace(/[^a-zA-Z0-9]/g, '_'))
+    .append('circle')
+      .attr('cx', 0).attr('cy', 0).attr('r', r - 2);
+});
+
+/* ── Force simulation ── */
+// Use D3 nodes/links (objects, not strings) so simulation mutates x/y
+const nodes = GRAPH.nodes.map(d => Object.assign({}, d));
+const links = GRAPH.links.map(d => Object.assign({}, d));
+
+// Separate radial distance by type
+function targetR(d) {
+  if (d.type === 'center') return 0;
+  if (d.type === 'cst')    return 210;
+  if (d.type === 'other')  return 520;
+  // external: inversely proportional to importance → bigger nodes closer
+  const r = nodeR(d);
+  return 350 + (30 - r) * 4;   // range ≈ 280–500
+}
+
+const simulation = d3.forceSimulation(nodes)
+  .force('link', d3.forceLink(links).id(d => d.id)
+    .distance(d => {
+      if (d.target.type === 'cst')    return 210;
+      if (d.target.type === 'other')  return 520;
+      const r = nodeR(d.target);
+      return 350 + (30 - r) * 4;
+    })
+    .strength(0.6))
+  .force('charge', d3.forceManyBody().strength(d => {
+    if (d.type === 'center') return -800;
+    if (d.type === 'cst')    return -300;
+    return -120 - nodeR(d) * 4;
+  }))
+  .force('collide', d3.forceCollide().radius(d => nodeR(d) + 14))
+  .force('radial', d3.forceRadial(d => targetR(d), CX, CY).strength(0.55))
+  .force('center', d3.forceCenter(CX, CY).strength(0.02))
+  .alphaDecay(0.02)
+  .velocityDecay(0.35);
+
+// Pin center node
+const center = nodes.find(n => n.type === 'center');
+center.fx = CX; center.fy = CY;
+
+/* ── Render links ── */
+const linkSel = d3.select('#links-layer')
+  .selectAll('line')
+  .data(links)
+  .join('line')
+    .attr('stroke', d => d.type === 'narayan-cst' ? 'rgba(255,255,255,0.6)' : 'rgba(138,170,200,0.7)')
+    .attr('stroke-width', linkW)
+    .attr('stroke-opacity', linkAlpha);
+
+/* ── Render nodes ── */
+const nodeSel = d3.select('#nodes-layer')
+  .selectAll('g.node')
+  .data(nodes)
+  .join('g')
+    .attr('class', 'node')
+    .style('cursor', d => d.type === 'center' || d.type === 'cst' ? 'default' : 'pointer');
+
+// Background circle
+nodeSel.append('circle')
+  .attr('r', d => nodeR(d))
+  .attr('fill', d => {
+    if (d.type === 'center')   return '#13294B';
+    if (d.type === 'cst')      return '#0D1E3A';
+    if (d.type === 'other')    return '#1A2A40';
+    return '#1A2D48';
+  })
+  .attr('stroke', d => {
+    if (d.type === 'center')   return '#FF5F05';
+    if (d.type === 'cst')      return d.color;
+    if (d.type === 'other')    return '#2A3A50';
+    return '#3A5A78';
+  })
+  .attr('stroke-width', d => {
+    if (d.type === 'center') return 3.5;
+    if (d.type === 'cst')    return 3;
+    return 1.5;
+  });
+
+// Portrait images for center + CST
+nodeSel.filter(d => d.img)
+  .append('image')
+    .attr('href', d => d.img)
+    .attr('x', d => -nodeR(d) + 2)
+    .attr('y', d => -nodeR(d) + 2)
+    .attr('width',  d => (nodeR(d) - 2) * 2)
+    .attr('height', d => (nodeR(d) - 2) * 2)
+    .attr('clip-path', d => 'url(#clip-' + d.id.replace(/[^a-zA-Z0-9]/g, '_') + ')')
+    .attr('preserveAspectRatio', 'xMidYMid slice');
+
+// Labels
+nodeSel.append('text')
+  .attr('text-anchor', 'middle')
+  .attr('dy', d => nodeR(d) + 14)
+  .attr('font-size', d => {
+    if (d.type === 'center')   return '15px';
+    if (d.type === 'cst')      return '12px';
+    if (d.type === 'other')    return '10px';
+    return '11px';
+  })
+  .attr('font-weight', d => d.type === 'center' ? '900' : d.type === 'cst' ? '700' : '400')
+  .attr('fill', d => {
+    if (d.type === 'center') return '#DDE6F4';
+    if (d.type === 'cst')    return '#AABCCE';
+    return '#5A7890';
+  })
+  .text(d => {
+    if (d.type === 'center') return d.label;
+    if (d.type === 'cst')    return d.label.split(' ').pop(); // last name only
+    return d.label;
+  });
+
+/* ── Tooltip ── */
+const tooltip = document.getElementById('tooltip');
+const ttName  = document.getElementById('tt-name');
+const ttCount = document.getElementById('tt-count');
+const ttMembers = document.getElementById('tt-members');
+
+nodeSel
+  .on('mouseenter', function(event, d) {
+    if (d.type === 'center') {
+      ttName.textContent = 'Gautham Narayan';
+      ttCount.textContent = d.papers + ' papers in cvrefs.bib';
+      ttMembers.textContent = '';
+    } else if (d.type === 'cst') {
+      const link = links.find(l => (l.target.id || l.target) === d.id);
+      ttName.textContent = d.label;
+      ttCount.textContent = (link ? link.weight : d.papers) + ' co-authored papers';
+      ttMembers.textContent = '';
+    } else if (d.type === 'external') {
+      const link = links.find(l => (l.target.id || l.target) === d.id);
+      ttName.textContent = d.label;
+      ttCount.textContent = d.papers + ' co-authorship instances';
+      ttMembers.textContent = d.members ? d.members : '';
+    } else {
+      ttName.textContent = d.label;
+      ttCount.textContent = d.papers + ' co-authorship instances';
+      ttMembers.textContent = '';
+    }
+    tooltip.style.opacity = '1';
+  })
+  .on('mousemove', function(event) {
+    const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    const bodyLeft = parseFloat(document.body.style.marginLeft) || 0;
+    const bodyTop  = parseFloat(document.body.style.marginTop)  || 0;
+    // Convert screen coords to body-space coords
+    const bx = (event.clientX - bodyLeft) / s;
+    const by = (event.clientY - bodyTop)  / s;
+    tooltip.style.left = (bx + 16) + 'px';
+    tooltip.style.top  = (by - 10) + 'px';
+  })
+  .on('mouseleave', function() {
+    tooltip.style.opacity = '0';
+  });
+
+/* ── Simulation tick ── */
+simulation.on('tick', () => {
+  // Keep nodes within canvas bounds
+  nodes.forEach(d => {
+    if (d.fx !== undefined) return;
+    const r = nodeR(d);
+    d.x = Math.max(r + 10, Math.min(1920 - r - 10, d.x));
+    d.y = Math.max(r + 50, Math.min(1080 - r - 50, d.y));
+  });
+
+  linkSel
+    .attr('x1', d => d.source.x)
+    .attr('y1', d => d.source.y)
+    .attr('x2', d => d.target.x)
+    .attr('y2', d => d.target.y);
+
+  nodeSel.attr('transform', d => `translate(${d.x},${d.y})`);
+});
+
+/* ── Star field ── */
+const stars = svg.insert('g', ':first-child').attr('id', 'stars');
+const rng = (n) => {
+  // Simple deterministic positions
+  const phi = 1.6180339887;
+  return Array.from({length: n}, (_, i) => ({
+    x: ((i * phi * 1920) % 1920),
+    y: ((i * phi * 1080 * 0.618) % 1080),
+    r: (i % 5 === 0) ? 1.3 : 0.7,
+  }));
+};
+stars.selectAll('circle').data(rng(60)).join('circle')
+  .attr('cx', d => d.x).attr('cy', d => d.y).attr('r', d => d.r)
+  .attr('fill', 'rgba(200,218,255,0.22)');
+
+})();
+</script>
+</body>
+</html>

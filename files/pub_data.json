@@ -1,0 +1,565 @@
+{
+  "project_weights": {
+    "rubin-yse": 1,
+    "desc-yse": 7,
+    "desc-rubin": 9,
+    "desc-skai": 2,
+    "rubin-skai": 2,
+    "scimma-skai": 1,
+    "_counts": {
+      "yse": 23,
+      "rubin": 19,
+      "desc": 29,
+      "skai": 13,
+      "scimma": 10
+    }
+  },
+  "coauth_graph": {
+    "nodes": [
+      {
+        "id": "Narayan",
+        "type": "center",
+        "label": "Narayan",
+        "img": "../img/Narayan.jpg",
+        "papers": 141
+      },
+      {
+        "id": "hinkle",
+        "type": "cst",
+        "label": "Jason Hinkle",
+        "img": "../img/group/jason.jpg",
+        "color": "#F59E0B",
+        "papers": 1
+      },
+      {
+        "id": "o'brien",
+        "type": "cst",
+        "label": "Jack O'Brien",
+        "img": "../img/group/jack.jpg",
+        "color": "#F59E0B",
+        "papers": 1
+      },
+      {
+        "id": "mitra",
+        "type": "cst",
+        "label": "Ayan Mitra",
+        "img": "../img/group/ayan.jpg",
+        "color": "#3B82F6",
+        "papers": 3
+      },
+      {
+        "id": "abunemeh",
+        "type": "cst",
+        "label": "Henna Abunemeh",
+        "img": "../img/group/henna.jpg",
+        "color": "#F59E0B",
+        "papers": 1
+      },
+      {
+        "id": "wasserman",
+        "type": "cst",
+        "label": "Amanda Wasserman",
+        "img": "../img/group/amanda.jpg",
+        "color": "#8B5CF6",
+        "papers": 5
+      },
+      {
+        "id": "murphey",
+        "type": "cst",
+        "label": "Tanner Murphey",
+        "img": "../img/group/tanner.jpg",
+        "color": "#22C55E",
+        "papers": 2
+      },
+      {
+        "id": "engholm",
+        "type": "cst",
+        "label": "Athena Engholm",
+        "img": "../img/group/athena.jpg",
+        "color": "#22C55E",
+        "papers": 1
+      },
+      {
+        "id": "perkins",
+        "type": "cst",
+        "label": "Haille Perkins",
+        "img": "../img/group/haille.jpg",
+        "color": "#22C55E",
+        "papers": 4
+      },
+      {
+        "id": "venkatraman",
+        "type": "cst",
+        "label": "Padma Venkatraman",
+        "img": "../img/group/padma.jpg",
+        "color": "#3B82F6",
+        "papers": 1
+      },
+      {
+        "id": "agrawal",
+        "type": "cst",
+        "label": "Aadya Agrawal",
+        "img": "../img/group/aadya.jpg",
+        "color": "#3B82F6",
+        "papers": 2
+      },
+      {
+        "id": "UCSC/YSE",
+        "type": "external",
+        "label": "UCSC/YSE",
+        "papers": 107,
+        "members": "coulter, de boer, dimitriadis, foley, hoogendam, kilpatrick, rojas-bravo, siebert"
+      },
+      {
+        "id": "STScI/NOIRLab",
+        "type": "external",
+        "label": "STScI/NOIRLab",
+        "papers": 65,
+        "members": "matheson, olszewski, rest, saha, shrestha"
+      },
+      {
+        "id": "Hawaii/PS1",
+        "type": "external",
+        "label": "Hawaii/PS1",
+        "papers": 44,
+        "members": "chambers, huber, magnier, wainscoat"
+      },
+      {
+        "id": "Cambridge/BayeSN",
+        "type": "external",
+        "label": "Cambridge/BayeSN",
+        "papers": 41,
+        "members": "boyd, grayling, mandel, thorp"
+      },
+      {
+        "id": "Copenhagen",
+        "type": "external",
+        "label": "Copenhagen",
+        "papers": 37,
+        "members": "gall, hjorth, izzo"
+      },
+      {
+        "id": "Penn State",
+        "type": "external",
+        "label": "Penn State",
+        "papers": 36,
+        "members": "gagliano, villar"
+      },
+      {
+        "id": "UChicago/Fermilab",
+        "type": "external",
+        "label": "UChicago/Fermilab",
+        "papers": 14,
+        "members": "chang, drlica-wagner, frieman, kessler"
+      },
+      {
+        "id": "UIUC",
+        "type": "external",
+        "label": "UIUC",
+        "papers": 7,
+        "members": "fields, raghunathan, vieira"
+      },
+      {
+        "id": "LBNL",
+        "type": "external",
+        "label": "LBNL",
+        "papers": 6,
+        "members": "kim, nugent"
+      },
+      {
+        "id": "Oxford/SAAO",
+        "type": "external",
+        "label": "Oxford/SAAO",
+        "papers": 5,
+        "members": "lochner"
+      },
+      {
+        "id": "Northwestern/SkAI",
+        "type": "external",
+        "label": "Northwestern/SkAI",
+        "papers": 2,
+        "members": "krafczyk, samia"
+      },
+      {
+        "id": "wang",
+        "type": "external",
+        "label": "Wang",
+        "papers": 24
+      },
+      {
+        "id": "jones",
+        "type": "external",
+        "label": "Jones",
+        "papers": 23
+      },
+      {
+        "id": "smith",
+        "type": "external",
+        "label": "Smith",
+        "papers": 21
+      },
+      {
+        "id": "auchettl",
+        "type": "external",
+        "label": "Auchettl",
+        "papers": 18
+      },
+      {
+        "id": "gao",
+        "type": "external",
+        "label": "Gao",
+        "papers": 14
+      },
+      {
+        "id": "smartt",
+        "type": "external",
+        "label": "Smartt",
+        "papers": 14
+      },
+      {
+        "id": "lin",
+        "type": "external",
+        "label": "Lin",
+        "papers": 12
+      },
+      {
+        "id": "zenati",
+        "type": "external",
+        "label": "Zenati",
+        "papers": 11
+      },
+      {
+        "id": "davis",
+        "type": "external",
+        "label": "Davis",
+        "papers": 10
+      },
+      {
+        "id": "taggart",
+        "type": "external",
+        "label": "Taggart",
+        "papers": 10
+      },
+      {
+        "id": "drout",
+        "type": "external",
+        "label": "Drout",
+        "papers": 10
+      },
+      {
+        "id": "malanchev",
+        "type": "external",
+        "label": "Malanchev",
+        "papers": 10
+      },
+      {
+        "id": "chatterjee",
+        "type": "external",
+        "label": "Chatterjee",
+        "papers": 10
+      },
+      {
+        "id": "farias",
+        "type": "external",
+        "label": "Farias",
+        "papers": 9
+      },
+      {
+        "id": "margutti",
+        "type": "external",
+        "label": "Margutti",
+        "papers": 9
+      },
+      {
+        "id": "pan",
+        "type": "external",
+        "label": "Pan",
+        "papers": 9
+      },
+      {
+        "id": "terreran",
+        "type": "external",
+        "label": "Terreran",
+        "papers": 9
+      },
+      {
+        "id": "aleo",
+        "type": "external",
+        "label": "Aleo",
+        "papers": 9
+      },
+      {
+        "id": "shah",
+        "type": "external",
+        "label": "Shah",
+        "papers": 8
+      },
+      {
+        "id": "angus",
+        "type": "external",
+        "label": "Angus",
+        "papers": 8
+      },
+      {
+        "id": "others",
+        "type": "other",
+        "label": "\u2026 890 others",
+        "papers": 1414
+      }
+    ],
+    "links": [
+      {
+        "source": "Narayan",
+        "target": "hinkle",
+        "weight": 1,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "o'brien",
+        "weight": 1,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "mitra",
+        "weight": 3,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "abunemeh",
+        "weight": 1,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "wasserman",
+        "weight": 5,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "murphey",
+        "weight": 2,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "engholm",
+        "weight": 1,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "perkins",
+        "weight": 4,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "venkatraman",
+        "weight": 1,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "agrawal",
+        "weight": 2,
+        "type": "narayan-cst"
+      },
+      {
+        "source": "Narayan",
+        "target": "UCSC/YSE",
+        "weight": 107,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "STScI/NOIRLab",
+        "weight": 65,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "Hawaii/PS1",
+        "weight": 44,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "Cambridge/BayeSN",
+        "weight": 41,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "Copenhagen",
+        "weight": 37,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "Penn State",
+        "weight": 36,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "UChicago/Fermilab",
+        "weight": 14,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "UIUC",
+        "weight": 7,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "LBNL",
+        "weight": 6,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "Oxford/SAAO",
+        "weight": 5,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "Northwestern/SkAI",
+        "weight": 2,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "wang",
+        "weight": 24,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "jones",
+        "weight": 23,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "smith",
+        "weight": 21,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "auchettl",
+        "weight": 18,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "gao",
+        "weight": 14,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "smartt",
+        "weight": 14,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "lin",
+        "weight": 12,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "zenati",
+        "weight": 11,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "davis",
+        "weight": 10,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "taggart",
+        "weight": 10,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "drout",
+        "weight": 10,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "malanchev",
+        "weight": 10,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "chatterjee",
+        "weight": 10,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "farias",
+        "weight": 9,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "margutti",
+        "weight": 9,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "pan",
+        "weight": 9,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "terreran",
+        "weight": 9,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "aleo",
+        "weight": 9,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "shah",
+        "weight": 8,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "angus",
+        "weight": 8,
+        "type": "narayan-ext"
+      },
+      {
+        "source": "Narayan",
+        "target": "others",
+        "weight": 1414,
+        "type": "narayan-ext"
+      }
+    ]
+  }
+}
