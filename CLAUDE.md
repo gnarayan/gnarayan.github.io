@@ -85,7 +85,8 @@ LinkedIn profiles are acceptable as the `data-url` / name link when a member has
 - Henna Abunemeh: `https://hnemeh.github.io/`
 - Tanner Murphey: `https://ctmurphey.github.io/`
 - Michael Lukaszyk: `https://www.linkedin.com/in/michael-lukaszyk-3b69302aa/` (LinkedIn)
-- Athena Engholm, Padmavathi Venkatraman, Aadya Agrawal: no personal site linked yet
+- Aadya Agrawal: `https://aadya29.github.io`
+- Athena Engholm, Padmavathi Venkatraman: no personal site linked yet
 
 ### Linking external tools and projects
 
