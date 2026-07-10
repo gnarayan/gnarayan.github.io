@@ -198,7 +198,8 @@
 
 <script>
 function openTalkModal(videoId, title) {
-  document.getElementById('talk-modal-iframe').src = '//www.youtube.com/embed/' + videoId + '?autoplay=1';
+  var sep = videoId.indexOf('?') === -1 ? '?' : '&';
+  document.getElementById('talk-modal-iframe').src = '//www.youtube.com/embed/' + videoId + sep + 'autoplay=1';
   document.getElementById('talk-modal-title').textContent = title;
   document.getElementById('talk-modal').style.display = 'block';
   document.body.style.overflow = 'hidden';
