@@ -48,6 +48,7 @@ Talks live on a dedicated page at `talks/index.html`, linked from the navbar as 
 1. Get the YouTube video ID from the URL (e.g. `dQw4w9WgXcQ` from `youtube.com/watch?v=dQw4w9WgXcQ`).
 2. The thumbnail URL is: `https://img.youtube.com/vi/<VIDEO_ID>/hqdefault.jpg`
 3. Copy an existing `.talk-card` block in `talks/index.html` and update the `onclick` video ID, thumbnail `src`, and `alt`/title text.
+4. If the talk starts partway into a longer video (e.g. an event session), pass the offset in the `onclick` ID as `'VIDEO_ID?start=SECONDS'` — the modal JS appends `autoplay=1` with the correct `?`/`&` separator.
 
 ### Adding a group member
 
