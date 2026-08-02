@@ -216,16 +216,7 @@ This technique can be used to recolor any transparent-background logo to match t
 
 ## Content strategy — planned additions
 
-The following content improvements were identified in a review on 2026-03-15, prioritized for discussion and implementation. Do not implement these without explicit user approval — they require new content from the user.
-
-| Priority | Item | Notes |
-|---|---|---|
-| High | **News / Recent Highlights section** | 3–5 reverse-chronological items near top of page. Candidate items (2026): Jason Hinkle NASA Hubble/Einstein Fellowship; Ayan Mitra lead author on LSST fully-photometric SN cosmology paper (arXiv:2512.06319); Dovekie/DES 5yr calibration reanalysis (arXiv:2506.05471, 2511.07517). **Blocked** pending photos and additional content from user — do not implement until explicitly asked. |
-| High | **Selected Publications list** | 5–10 curated papers on main page with title, journal, year, one-line significance; the ADS/Scholar buttons alone are insufficient |
-| Lower | **Update Recorded Talks page** | Talks at `/talks/` are mostly ANTARES-era (2017–2018) plus the NCSA 40th Anniversary talk (Apr 2026); add newer talks when available. Section intentionally moved off main page since it cannot be kept reliably current. |
-| Medium | **Software / Code section** | Link to key GitHub repos: SELDON, WDmodel, ORACLE, ANTARES, Mantis Shrimp, etc.; increasingly important for promotion and community uptake |
-| Medium | **Prospective student/postdoc statement** | Short paragraph in Group section on whether you are actively recruiting and what to include in an inquiry email |
-| Lower | **Expand biography narrative** | Current bio lists titles/affiliations; add 1–2 sentences tracing research arc from ESSENCE → YSE → SELDON/Rubin era |
+Prioritized content-improvement backlog (from the 2026-03-15 site review) lives in `memory/project_content_improvements.md` — single source of truth. Do not implement any of those items without explicit user approval; they require new content from the user.
 
 ### Easter egg — Champaign Supernova Team hover animation
 
