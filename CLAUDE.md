@@ -85,7 +85,6 @@ LinkedIn profiles are acceptable as the `data-url` / name link when a member has
 - Ayan Mitra: `https://am610.github.io/`
 - Henna Abunemeh: `https://hnemeh.github.io/`
 - Tanner Murphey: `https://ctmurphey.github.io/`
-- Michael Lukaszyk: `https://www.linkedin.com/in/michael-lukaszyk-3b69302aa/` (LinkedIn)
 - Aadya Agrawal: `https://aadya29.github.io`
 - Tanmay Raswant: `https://tanmayraswant.github.io`
 - Julia Henricks: `https://www.linkedin.com/in/julia-henricks-681b19364` (LinkedIn)
